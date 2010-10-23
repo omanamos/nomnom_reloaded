@@ -1,0 +1,20 @@
+<%-
+	context = (yield :context).to_sym
+-%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Nomnom</title>
+		<%= stylesheet_link_merged( :base, context ).html_safe %>
+		<%= javascript_include_merged( :base, context ).html_safe %>
+		<%= csrf_meta_tag %>
+	</head>
+	<body>
+		<div id="container">
+			<%= yield %>
+			<p>
+				<a href="<%= url_for :controller => 'about', :action => 'index' %>">About</a> &bull; <a href="<%= url_for :controller => 'help', :action => 'index' %>">Help</a>
+			</p>
+		</div>
+	</body>
+</html>

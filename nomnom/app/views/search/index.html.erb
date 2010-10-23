@@ -1,0 +1,36 @@
+<%- content_for(:context) do -%>search<%- end -%>
+<%-
+	num_recipes = 3
+-%>
+<a href="/home" class="image-link">
+    <img src="<%= image_path 'projectnomnom_title_small.jpg' %>" alt="nomnom_title" title="Nom nom!" />
+</a>  
+<form action="/search" method="get">
+    <input name="query" class="recipagesearch" type="text" maxlength="40" value="" />
+    <input class="button recipagebutton" type="submit" value="Find Recipes!"/>
+</form>
+<h1>Found <%= num_recipes %> Recipes:</h1>
+
+<div id="recipesbox">
+    <%-
+        for i in (0..num_recipes)
+            text_id = "body_" + i.to_s;
+            button_id = "toggle_" + i.to_s;
+    -%>
+        <div class="reciptitle">
+            <%= @query %>
+            <input id="<%= button_id %>" type="submit" class="viewtoggle button ingredbutton" value="View Recipe"/>
+            <input class="button ingredbutton" type="submit" value="Get Ingredients"/>
+        </div>
+        <div id="<%= text_id %>" style="display:none">
+            <p class="recipbody">
+                <%- for i in (0..100) -%>
+                    <%= @query %>
+                <%- end -%>
+            </p>
+        </div>
+            <%- if i != num_recipes -%>
+                <hr />
+            <%- end -%>
+    <%- end -%>
+</div>

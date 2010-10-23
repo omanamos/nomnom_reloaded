@@ -1,0 +1,11 @@
+input.homesearch {
+    padding: 0;
+    font-size: 22px;
+    height: 38px;
+    width: 470px;
+}
+
+input.homebutton {
+    font-size: 20px;
+    height: 40px;
+}

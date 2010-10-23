@@ -1,0 +1,17 @@
+---
+javascripts:
+- base:
+  - jquery
+  - application
+- home:
+  - home
+- search:
+  - search
+
+stylesheets:
+- base:
+  - application
+- home:
+  - home
+- search:
+  - search
