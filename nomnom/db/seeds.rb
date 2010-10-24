@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+Recipe.create(:title => "Cat Stew", :directions => "Find an alleycat.\nBoil it in salty, salty water.\nThen bake until golden brown.\nMmm…cat!")
+Ingredient.create(:recipe => Recipe.all[0], :content => "cat")
+Ingredient.create(:recipe => Recipe.all[0], :content => "salt")
+Ingredient.create(:recipe => Recipe.all[0], :content => "water")

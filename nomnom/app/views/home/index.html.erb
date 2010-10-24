@@ -1,7 +1,7 @@
 <%- content_for(:context) do -%>home<%- end -%>
 <img src= "<%= image_path 'projectnomnom_title.jpg' %>" alt="nomnom_title" title="Nom nom!" />
 <img src="<%= image_path 'nomnom_image.jpg' %>" alt="nomnom_image" title="How it be done." height="200px"/>
-<form action="/search" method="get">
+<form action="<%=url_for :controller => 'search', :action => 'index'%>" method="get">
 	<input name="query" class="homesearch" type="text" maxlength="40" value="" />
 	<input class="button homebutton" type="submit" value="Find Recipes!"/>
 </form>

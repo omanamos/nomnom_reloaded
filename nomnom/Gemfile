@@ -10,6 +10,7 @@ gem 'acts_as_solr_reloaded'
 gem 'acts_as_taggable'
 gem 'automatic_foreign_key'
 gem 'asset_packager'
+gem 'authlogic'
 
 # Use unicorn as the web server
 # gem 'unicorn'
