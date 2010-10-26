@@ -19,7 +19,7 @@
         	<ul>
         		<%- for ingr in recipe.ingredients -%>
         		<li>
-        			<%=ingr.content%>
+        			<%= ingr.amount + " " + ingr.item%>
         		</li>
         		<%- end -%>
         	</ul>

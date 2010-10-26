@@ -3,7 +3,7 @@ class CreateRecipes < ActiveRecord::Migration
     create_table :recipes do |t|
       t.string :title, :null => false
       t.text :cooking_time
-      t.text :directions, :null => false
+      t.text :directions
       t.text :description
 
       t.timestamps
