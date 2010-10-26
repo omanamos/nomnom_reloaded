@@ -5,6 +5,11 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+require "rubygems"
+require "zip/zip"
+
+
 x = Recipe.create(:title => "Cat Stew", :directions => "Find an alleycat.\nBoil it in salty, salty water.\nThen bake until golden brown.\nMmm…cat!")
 Ingredient.create(:recipe => x, :item => "cat", :amount => "12 huge ones")
 Ingredient.create(:recipe => x, :item => "salt", :amount => "a pinch")
@@ -13,3 +18,13 @@ x = Recipe.create(:title => "Eggplant and Roasted Garlic Babakanoosh", :descript
 Ingredient.create(:recipe => x, :item => "large head garlic", :amount => "1")
 Ingredient.create(:recipe => x, :item => "large eggplants", :amount => "3")
 Ingredient.create(:recipe => x, :item => "medium vidalia", :amount => "1")
+
+
+RECIPES_PATH = "lib/xml/ParseRecipes/recipes_xml.zip"
+
+Zip::ZipFile.open(RECIPES_PATH, Zip::ZipFile::CREATE) {
+	|zipfile|
+	 zipFile.dir.each {|file|
+	 	puts file
+	 }
+	}
