@@ -1,35 +1,34 @@
 <%- content_for(:context) do -%>search<%- end -%>
-<%-
-	num_recipes = 3
--%>
-<a href="/home" class="image-link">
-    <img src="<%= image_path 'projectnomnom_title_small.jpg' %>" alt="nomnom_title" title="Nom nom!" />
-</a>  
-<form action="/search" method="get">
-    <input name="query" class="recipagesearch" type="text" maxlength="40" value="" />
-    <input class="button recipagebutton" type="submit" value="Find Recipes!"/>
-</form>
-<h1>Found <%= num_recipes %> Recipes:</h1>
+<%- num_recipes = @results.length -%>
+<h1>Found <%= num_recipes %> Recipe<%=(num_recipes != 1) ? "s" : ""%>:</h1>
 
 <div id="recipesbox">
     <%-
-        for i in (0..num_recipes)
+        for i in (0..(num_recipes - 1))
+        	recipe = @results[i]
             text_id = "body_" + i.to_s;
             button_id = "toggle_" + i.to_s;
     -%>
         <div class="reciptitle">
-            <%= @query %>
+            <%= recipe.title %>
             <input id="<%= button_id %>" type="submit" class="viewtoggle button ingredbutton" value="View Recipe"/>
             <input class="button ingredbutton" type="submit" value="Get Ingredients"/>
         </div>
-        <div id="<%= text_id %>" style="display:none">
-            <p class="recipbody">
-                <%- for i in (0..100) -%>
-                    <%= @query %>
-                <%- end -%>
-            </p>
+        <div id="<%= text_id %>" class="recipe_content">
+        	<h3>Ingredients</h3>
+        	<ul>
+        		<%- for ingr in recipe.ingredients -%>
+        		<li>
+        			<%= ingr.amount + " " + ingr.item%>
+        		</li>
+        		<%- end -%>
+        	</ul>
+        	<h3>Directions</h3>
+           	<pre class="recipe_directions">
+<%=recipe.directions%>
+            </pre>
         </div>
-            <%- if i != num_recipes -%>
+            <%- if i < (num_recipes - 1) -%>
                 <hr />
             <%- end -%>
     <%- end -%>
