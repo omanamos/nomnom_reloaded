@@ -1,6 +1,6 @@
 <%- content_for(:context) do -%>search<%- end -%>
 <%- num_recipes = @results.length -%>
-<h1>Found <%= num_recipes %> Recipe<%=(num_recipes != 1) ? "s" : ""%>:</h1>
+<h1>Found <%= num_recipes %> Recipe<%=(num_recipes != 1) ? "s" : ""%><%=(num_recipes != 0) ? ":" : ""%></h1>
 
 <div id="recipesbox">
     <%-
@@ -19,7 +19,7 @@
         	<ul>
         		<%- for ingr in recipe.ingredients -%>
         		<li>
-        			<%=ingr.content%>
+        			<%=ingr.amount%>,<%=ingr.item%>
         		</li>
         		<%- end -%>
         	</ul>
