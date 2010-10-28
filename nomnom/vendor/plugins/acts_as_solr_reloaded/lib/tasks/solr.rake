@@ -17,7 +17,7 @@ namespace :solr do
       # there's an issue with Net::HTTP.request where @socket is nil and raises a NoMethodError
       # http://redmine.ruby-lang.org/issues/show/2708
       Dir.chdir(SOLR_PATH) do
-        cmd = "java #{SOLR_JVM_OPTIONS} -Djetty.logs=\"#{SOLR_LOGS_PATH}\" -Dsolr.solr.home=\"#{SOLR_CONFIG_PATH}\" -Dsolr.data.dir=\"#{SOLR_DATA_PATH}\" -Djetty.port=#{SOLR_PORT} -jar start.jar"
+        cmd = "java #{SOLR_JVM_OPTIONS} -Djetty.logs=\"#{SOLR_LOGS_PATH}\" -Dsolr.solr.home=\"#{SOLR_CONFIG_PATH}\" -Dsolr.data.dir=\"#{SOLR_DATA_PATH}\" -Djetty.port=#{SOLR_PORT} -jar #{SOLR_PATH}/../start.jar"
         puts "Executing: " + cmd
         windows = RUBY_PLATFORM =~ /(win|w)32$/
         if windows
@@ -29,6 +29,7 @@ namespace :solr do
           end
         end
         sleep(5)
+	pid += 1
         File.open("#{SOLR_PIDS_PATH}/#{ENV['RAILS_ENV']}_pid", "w"){ |f| f << pid} unless windows
         puts "#{ENV['RAILS_ENV']} Solr started successfully on #{SOLR_PORT}, pid: #{pid}."
       end
