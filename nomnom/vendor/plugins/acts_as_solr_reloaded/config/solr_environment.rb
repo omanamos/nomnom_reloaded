@@ -4,7 +4,7 @@ require "uri"
 require "fileutils"
 require "yaml"
 dir = File.dirname(__FILE__)
-SOLR_PATH = File.expand_path("#{dir}/../solr") unless defined? SOLR_PATH
+SOLR_PATH = (ENV['SOLR_PATH'] || File.expand_path("#{dir}/../solr")) unless defined? SOLR_PATH
 
 RAILS_ROOT = File.expand_path("#{File.dirname(__FILE__)}/../test") unless defined? RAILS_ROOT
 unless defined? SOLR_LOGS_PATH

@@ -1,0 +1,9 @@
+staging:
+  aws_access_key: AKIAIUHG5WK4HL2CUWUA
+  aws_secret_access_key: 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
+  bucket_base_name: omanamos_storage
+
+production:
+  aws_access_key: AKIAIUHG5WK4HL2CUWUA
+  aws_secret_access_key: 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
+  bucket_base_name: omanamos_storage

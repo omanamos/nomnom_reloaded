@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+<<<<<<< HEAD
 
 #Ingredient.create(:recipe => x, :item => "cat", :amount => "12 huge ones")
 #Ingredient.create(:recipe => x, :item => "salt", :amount => "a pinch")
@@ -40,3 +41,13 @@ Dir.foreach(RECIPES_PATH) do |file|
 		end
 	end
 end
+=======
+x = Recipe.create(:title => "Cat Stew", :directions => "Find an alleycat.\nBoil it in salty, salty water.\nThen bake until golden brown.\nMmm…cat!")
+Ingredient.create(:recipe => x, :item => "cat", :amount => "12 huge ones")
+Ingredient.create(:recipe => x, :item => "salt", :amount => "a pinch")
+Ingredient.create(:recipe => x, :item => "water", :amount => "1 cup")
+x = Recipe.create(:title => "Eggplant and Roasted Garlic Babakanoosh", :description => "A Middle Eastern dip for crudites, pita crisps or [[romaine lettuce]] leaves!", :directions => "#On a gas or preferably charcoal barbecue, roast the whole Eggplant evenly on all sides until the skin is charred or the Eggplant is soft. Set aside and let cool. Peel off charred skin,or scoop out the soft insides of the Eggplant and place in a large bowl. #Add garlic, olive oil, Onion, parsley, basil,  Sauce, salt and pepper to taste. #Serve as a canape', or serve with Armenian cracker bread, as a vegetable dip, or as a vegetable side dish. Can be served hot or cold.")
+Ingredient.create(:recipe => x, :item => "large head garlic", :amount => "1")
+Ingredient.create(:recipe => x, :item => "large eggplants", :amount => "3")
+Ingredient.create(:recipe => x, :item => "medium vidalia", :amount => "1")
+>>>>>>> aabd064ca6dbe23abc111926f0b7a3a25407b9ed
