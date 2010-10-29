@@ -1,11 +1,11 @@
 <%- content_for(:context) do -%>search<%- end -%>
-<%- num_recipes = @results.length -%>
+<%- num_recipes = @results.docs.length -%>
 <h1>Found <%= num_recipes %> Recipe<%=(num_recipes != 1) ? "s" : ""%>:</h1>
 
 <div id="recipesbox">
     <%-
         for i in (0..(num_recipes - 1))
-        	recipe = @results[i]
+        	recipe = @results.docs[i]
             text_id = "body_" + i.to_s;
             button_id = "toggle_" + i.to_s;
     -%>

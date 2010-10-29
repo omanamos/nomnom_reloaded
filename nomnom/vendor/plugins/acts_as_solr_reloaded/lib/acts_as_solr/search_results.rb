@@ -65,7 +65,16 @@ module ActsAsSolr #:nodoc:
     
     # Returns a suggested query
     def suggest
-      @solr_data[:spellcheck]['suggestions']['collation'].match(/\((.+)\) /)[1]
+   		if suggest?
+    		@solr_data[:spellcheck]['suggestions']['collation'].match(/\((.+)\) /)[1]
+    	else
+    		""
+    	end
+    end
+    
+    # Are there any suggested queries?
+    def suggest?
+    	@solr_data[:spellcheck]['suggestions']['collation'] != nil
     end
 
     # Returns the number of documents per page

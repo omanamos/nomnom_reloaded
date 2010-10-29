@@ -28,7 +28,6 @@ GEM
       activemodel (= 3.0.1)
       activesupport (= 3.0.1)
     activesupport (3.0.1)
-    acts_as_solr_reloaded (1.5.0)
     acts_as_taggable (2.0.2)
     arel (1.0.1)
       activesupport (~> 3.0.0)
@@ -89,7 +88,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts_as_solr_reloaded
   acts_as_taggable
   asset_packager
   authlogic
