@@ -1,3 +1,5 @@
 nomnom/config/database.yml
 nomnom/lib/xml/ParseRecipes/recipes_xml/*
 *~
+nomnom/solr/*
+solr/*

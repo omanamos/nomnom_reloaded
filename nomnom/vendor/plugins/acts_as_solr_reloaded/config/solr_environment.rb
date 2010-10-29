@@ -1,4 +1,4 @@
-ENV['RAILS_ENV']  = 'production'
+ENV['RAILS_ENV']  = 'development' unless defined? RAILS_ENV
 # RAILS_ROOT isn't defined yet, so figure it out.
 require "uri"
 require "fileutils"
@@ -6,7 +6,7 @@ require "yaml"
 dir = File.dirname(__FILE__)
 
 RAILS_ROOT = File.expand_path("#{File.dirname(__FILE__)}/../test") unless defined? RAILS_ROOT
-SOLR_PATH = "/home/ubuntu/nomnom_reloaded/solr/solr"
+SOLR_PATH = "#{RAILS_ROOT}/../solr/solr"
 unless defined? SOLR_LOGS_PATH
   SOLR_LOGS_PATH = ENV["SOLR_LOGS_PATH"] || "#{RAILS_ROOT}/log"
 end
