@@ -26,17 +26,17 @@ Dir.foreach(RECIPES_PATH) do |file|
 	xml = XmlSimple.xml_in(filepath)
 	
 	if(xml['ingredients'][0]['ingredient'] != nil)
-		title = xml['title']
-		description = xml['description']
-		directions = xml['directions']
-		puts xml['id']
+		title = xml['title'].to_s
+		description = xml['description'].to_s
+		directions = xml['directions'].to_s
+		puts title
 		recipe = Recipe.create(:title => title, :description => description, :directions => directions)
 		if (recipe) then
 			ingredients = xml['ingredients']
 			ingredients[0]['ingredient'].each do |ingr|
 				puts ingr.inspect
-				item = ingr['item']
-				amount = ingr['amount']
+				item = ingr['item'].to_s
+				amount = ingr['amount'].to_s
 				ingredient = Ingredient.create(:recipe => recipe, :item => item, :amount => amount)
 			end
 		end
