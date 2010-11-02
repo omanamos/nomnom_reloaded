@@ -12,9 +12,9 @@
             button_id = "toggle_" + i.to_s;
     -%>
         <div class="reciptitle">
-            <%= recipe.title %>
+            <%= recipe.title %><br />
             <input id="<%= button_id %>" type="submit" class="viewtoggle button ingredbutton" value="View Recipe"/>
-            <input class="button ingredbutton" type="submit" value="Get Ingredients"/>
+            <input class="get_ingredients button ingredbutton" type="submit" value="Get Ingredients"/>
         </div>
         <div id="<%= text_id %>" class="recipe_content">
         	<h3>Ingredients</h3>
@@ -26,9 +26,9 @@
         		<%- end -%>
         	</ul>
         	<h3>Directions</h3>
-           	<pre class="recipe_directions">
+           	<p class="recipe_directions">
 <%=recipe.directions%>
-            </pre>
+            </p>
         </div>
             <%- if i < (num_recipes - 1) -%>
                 <hr />
