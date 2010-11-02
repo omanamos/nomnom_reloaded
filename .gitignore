@@ -3,3 +3,4 @@ nomnom/lib/xml/ParseRecipes/recipes_xml/*
 *~
 nomnom/solr/*
 solr/*
+*.zip
