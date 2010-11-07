@@ -1,6 +1,8 @@
 import java.util.*;
 import java.util.regex.*;
 
+import org.apache.commons.lang.StringEscapeUtils;
+
 public class Ingredient {
 	
 	private static final String UNIT = "(pound|can|cup|ounce|quart|pint|quart|gallon|gram|teaspoon|tablespoon|liter|milliliter|kilogram|scoop|" +
@@ -41,8 +43,8 @@ public class Ingredient {
 	}
 	public String toString() {
 		return "\t\t\t<ingredient>\n" +
-					"\t\t\t\t<item>" + item + "</item>\n" +
-					"\t\t\t\t<amount>" + amount + "</amount>\n" +
+					"\t\t\t\t<item>" + StringEscapeUtils.escapeXml(StringEscapeUtils.unescapeXml(item)) + "</item>\n" +
+					"\t\t\t\t<amount>" + StringEscapeUtils.escapeXml(StringEscapeUtils.unescapeXml(amount)) + "</amount>\n" +
 				"\t\t\t</ingredient>\n";
 	}
 	private static String stripBrackets(String item) {

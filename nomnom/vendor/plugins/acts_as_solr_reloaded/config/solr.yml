@@ -11,4 +11,4 @@ test:
   
 production:
   url: http://127.0.0.1:8983/solr
-  jvm_options: -server -Xmx1024M -Xms64M
+  jvm_options: -server -d64 -Xmx1024M -Xms64M

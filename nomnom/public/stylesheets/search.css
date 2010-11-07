@@ -5,7 +5,10 @@
 input.ingredbutton {
     font-size: 16px;
     height: 25px;
-    margin-left: 70px;
+}
+
+input.get_ingredients{
+	margin-left: 464px;
 }
 
 #recipesbox {

@@ -3,6 +3,6 @@ class SearchController < ApplicationController
   
   def index
   	@query = params[:query]
-  	@results = Recipe.search(@query).docs
+  	@results = Recipe.search(@query)
   end
 end

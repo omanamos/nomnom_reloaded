@@ -1,7 +1,7 @@
 import java.io.*;
 import java.text.*;
 import java.util.*;
-
+import org.apache.commons.lang.StringEscapeUtils;
 
 public class Recipe {
 	
@@ -89,12 +89,12 @@ public class Recipe {
 			ingredientsList += s;
 		}
 		return "<recipe>\n" +
-					"\t<title>" + title + "</title>\n" + 
+					"\t<title>" + StringEscapeUtils.escapeXml(StringEscapeUtils.unescapeXml(title)) + "</title>\n" + 
 					"\t<id>" + id + "</id>\n" + 
 					"\t<timestamp>" + timestamp.toString() + "</timestamp>\n" + 
-					"\t<description>" + description + "</description>\n" + 
+					"\t<description>" + StringEscapeUtils.escapeXml(StringEscapeUtils.unescapeXml(description)) + "</description>\n" + 
 					"\t<ingredients>\n" + ingredientsList + "\t</ingredients>\n" + 
-					"\t<directions>" + directions + "</directions>\n" +
+					"\t<directions>" + StringEscapeUtils.escapeXml(StringEscapeUtils.unescapeXml(directions)) + "</directions>\n" +
 				"</recipe>";
 	}
 	
