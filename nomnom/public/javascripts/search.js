@@ -1,5 +1,6 @@
 $(document).ready(function(){
         $('input.viewtoggle').click(viewRecipeBody);
+        $('input.get_ingredients').click(chooseIngredients);
 });
 
 
@@ -15,5 +16,9 @@ function viewRecipeBody() {
         text.slideUp(500);
         this.value = "View Recipe";
     }
+}
+
+function chooseIngredients() {
+	$(this).fancybox();
 }
 

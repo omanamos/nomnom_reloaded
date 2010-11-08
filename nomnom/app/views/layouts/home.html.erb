@@ -12,7 +12,7 @@
 	<body>
 		<div id="container">
 			<%= yield %>
-			<p>
+			<p id="footer">
 				<a href="<%= url_for :controller => 'about', :action => 'index' %>">About</a> &bull; <a href="<%= url_for :controller => 'help', :action => 'index' %>">Help</a>
 			</p>
 		</div>

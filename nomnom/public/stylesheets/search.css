@@ -3,12 +3,15 @@
 }
 
 input.ingredbutton {
+	float: right;
     font-size: 16px;
     height: 25px;
+    margin: 4px;
+    margin-bottom: 8px;
 }
 
 input.get_ingredients{
-	margin-left: 464px;
+	margin-left: 20px;
 }
 
 #recipesbox {
@@ -17,15 +20,17 @@ input.get_ingredients{
 }
 
 .reciptitle {
+	float: left;
     text-align: left;
     font-size: 24px;
+    margin-bottom: 8px;
 }
 
-//.viewtext {
+// .viewtext {
 //   display: none;
 //}
 
-.viewtoggle {
+// .viewtoggle {
 //   height: 25px;
 //   font-size: 16px;
 //   text-decoration: none;
@@ -34,9 +39,10 @@ input.get_ingredients{
 //   background-color: #E8E8E8;
 //   color: #0E1930;
 //   padding: 0 5px;
-}
+//}
 
 .recipe_content {
+	clear: both;
 	display: none;
 	margin-left: 20px;	
 }
@@ -65,4 +71,12 @@ h3 {
 
 li {
 	text-align: left;	
+}
+
+hr {
+	clear: both;	
+}
+
+a:visited, img {
+	border: none;	
 }
