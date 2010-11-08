@@ -9,12 +9,13 @@
 <div id="recipesbox">
     <%-
         for i in (0..(num_recipes - 1))
-        	recipe = @results.docs[i]
+        	recipe = @results.docs[i];
+        	recipe_url = "http://recipes.wikia.com/wiki/" + recipe.title.gsub(" ", "_");
             text_id = "body_" + i.to_s;
             button_id = "toggle_" + i.to_s;
     -%>
         <div class="reciptitle">
-            <%= recipe.title %><br />
+            <a href="<%= recipe_url %>"><%= recipe.title %></a><br />
             <input id="<%= button_id %>" type="submit" class="viewtoggle button ingredbutton" value="View Recipe"/>
             <input class="get_ingredients button ingredbutton" type="submit" value="Get Ingredients"/>
         </div>
@@ -23,7 +24,7 @@
         	<ul>
         		<%- for ingr in recipe.ingredients -%>
         		<li>
-        		    <%= ingr.amount + " " + ingr.item%>
+        		    <%= ingr.amount + " " + ingr.item %>
         		</li>
         		<%- end -%>
         	</ul>
