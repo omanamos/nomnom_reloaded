@@ -44,3 +44,8 @@ input.page_top_button {
 #header {
 	margin-bottom: 15px;	
 }
+
+a {
+	text-decoration: none;	
+}
+
