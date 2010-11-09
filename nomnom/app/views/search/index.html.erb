@@ -6,7 +6,6 @@
 <%- if @results.suggest? and @results.total == 0 -%>
 <p>Did you mean <a href="<%=url_for :controller => 'search', :action => 'index'%>?query=<%= @results.suggest %>"><%= @results.suggest %></a>?</p>
 <%- end -%>
-
 <div id="recipesbox">
     <%-
         for i in (0..(num_recipes - 1))
@@ -16,10 +15,10 @@
             ingr_id = "ingredient_" + i.to_s;
     -%>
     	<div class="recipe">
-	        <div class="reciptitle">
+	        <div class="recipetitle">
 	            <%= recipe.title %>
 	        </div>
-	        <input id="<%= ingr_id %>"class="get_ingredients button ingredbutton" type="submit" value="Get Ingredients"/>
+	        <a class="ingredbutton get_ingredients" href="<%=url_for :controller => 'conflict', :action => 'index'%>?recipeID=<%= recipe.id %>">Get Ingredients</a>
 	        <input id="<%= button_id %>" type="submit" class="viewtoggle button ingredbutton" value="View Recipe"/>
 	        <div id="<%= text_id %>" class="recipe_content">
 	        	<h3>Ingredients</h3>
