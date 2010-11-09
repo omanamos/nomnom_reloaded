@@ -7,10 +7,15 @@ javascripts:
   - home
 - search:
   - search
-
+  - jquery 
+  - jquery.fancybox
+  - jquery.ui
+  
 stylesheets:
 - base:
   - application
+  - jquery.fancybox
+  - jquery.ui
 - home:
   - home
 - search:

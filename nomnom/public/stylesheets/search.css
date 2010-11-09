@@ -2,7 +2,7 @@
     border-style: none;
 }
 
-input.ingredbutton {
+.ingredbutton {
 	float: right;
     font-size: 16px;
     height: 25px;
@@ -10,7 +10,8 @@ input.ingredbutton {
     margin-bottom: 8px;
 }
 
-input.get_ingredients{
+.get_ingredients{
+	display: block;
 	margin-left: 20px;
 }
 
@@ -19,11 +20,12 @@ input.get_ingredients{
     width: 700px;
 }
 
-.reciptitle {
+.recipetitle {
 	float: left;
     text-align: left;
     font-size: 20px;
     margin-bottom: 8px;
+    max-width: 440px;
 }
 
 .recipe_content {
@@ -71,3 +73,8 @@ hr {
 a:visited, img {
 	border: none;	
 }
+
+#footer {
+	clear: both;	
+}
+
