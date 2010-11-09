@@ -1,5 +1,9 @@
 body {
-    background-image: url('../images/pattern_brown.gif');
+    background-image: url('../images/croissants.jpg');
+    background-color: #F29857;
+	background-repeat: repeat;
+	background-position:center top;
+	background-attachment:fixed;
     padding: 15px;
     font-family: Geneva, Arial, Helvetica, sans-serif;
 }
@@ -9,7 +13,7 @@ body {
     width: 800px;
     margin: 0 auto;
     padding: 25px 30px;
-    border: 10px solid #7F462C;
+    border: 4px solid #3e1f0d;
     background-color: #ffffff;
 }
 

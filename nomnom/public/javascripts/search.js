@@ -1,6 +1,7 @@
 $(document).ready(function(){
         $('input.viewtoggle').click(viewRecipeBody);
         $('input.get_ingredients').click(chooseIngredients);
+        $('input.page_top_search').click(clearSearchBox);
 });
 
 
@@ -22,3 +23,6 @@ function chooseIngredients() {
 	$(this).fancybox();
 }
 
+function clearSearchBox() {
+	this.value = "";
+}

@@ -16,12 +16,13 @@
     				<img src="<%= image_path 'projectnomnom_title_small.jpg' %>" alt="nomnom_title" title="Nom nom!" />
 				</a>  
 				<form action="<%=url_for :controller => 'search', :action => 'index'%>" method="get">
-	    			<input name="query" class="page_top_search" type="text" maxlength="40" value="" />
+	    			<input name="query" class="page_top_search" type="text" maxlength="40" value="<%=@query%>" />
 	    			<input class="button page_top_button" type="submit" value="Find Recipes!"/>
 				</form>
 			</div>
 			<%= yield %>
 			<p>
+				</br>
 				<a href="<%= url_for :controller => 'about', :action => 'index' %>">About</a> &bull; <a href="<%= url_for :controller => 'help', :action => 'index' %>">Help</a>
 			</p>
 		</div>

@@ -1,7 +1,7 @@
 <%- content_for(:context) do -%>search<%- end -%>
 <%- num_recipes = @results.docs.length -%>
 
-<h1>Found <%= num_recipes %> Recipe<%=(num_recipes != 1) ? "s" : ""%>:</h1>
+<h4>Found <%= num_recipes %> Recipe<%=(num_recipes != 1) ? "s" : ""%>.</h4>
 
 <%- if @results.suggest? and @results.total == 0 -%>
 <p>Did you mean <a href="<%=url_for :controller => 'search', :action => 'index'%>?query=<%= @results.suggest %>"><%= @results.suggest %></a>?</p>
@@ -11,13 +11,14 @@
     <%-
         for i in (0..(num_recipes - 1))
         	recipe = @results.docs[i];
+        	recipe_url = "http://recipes.wikia.com/wiki/" + recipe.title.gsub(" ", "_");
             text_id = "body_" + i.to_s;
             button_id = "toggle_" + i.to_s;
             ingr_id = "ingredient_" + i.to_s;
     -%>
     	<div class="recipe">
 	        <div class="reciptitle">
-	            <%= recipe.title %>
+	            <a href="<%= recipe_url %>"><%= recipe.title %></a>
 	        </div>
 	        <input id="<%= ingr_id %>"class="get_ingredients button ingredbutton" type="submit" value="Get Ingredients"/>
 	        <input id="<%= button_id %>" type="submit" class="viewtoggle button ingredbutton" value="View Recipe"/>
