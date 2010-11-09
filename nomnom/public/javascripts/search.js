@@ -5,35 +5,21 @@ $(document).ready(function(){
 	$('input.viewtoggle').click(viewRecipeBody);
 	
 	$('a.get_ingredients').fancybox({
-
 		'width'				: '75%',
-
 		'height'			: '75%',
-
 		'autoScale'			: false,
-
 		'transitionIn'		: 'elastic',
-
 		'transitionOut'		: 'elastic',
-
 		'type'				: 'iframe'
-
 	});
 	
 	$('a.original_recipe').fancybox({
-
 		'width'				: '75%',
-
 		'height'			: '75%',
-
 		'autoScale'			: false,
-
 		'transitionIn'		: 'elastic',
-
 		'transitionOut'		: 'elastic',
-
 		'type'				: 'iframe'
-
 	});
 	
 	$("input#query").autocomplete({

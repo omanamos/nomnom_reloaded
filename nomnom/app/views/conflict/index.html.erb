@@ -1,11 +1,11 @@
 <%- content_for(:context) do -%>conflict<%- end -%>
 
 <div id="ingredients">
-	<ul>
 		<%- for ingr in @recipe.ingredients -%>
-		<li>
-			<%= ingr.amount + " " + ingr.item%>
-		</li>
+		<div>
+			<select class="ingredient">
+				<option><%= ingr.amount + " " + ingr.item%></option>
+			</select>
+		</div>
 		<%- end -%>
-	</ul> 
 </div>

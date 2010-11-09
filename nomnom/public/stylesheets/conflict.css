@@ -1,0 +1,9 @@
+body {
+    background-image: url('../images/pattern_brown.gif');
+    background-color: #F29857;
+	background-repeat: repeat;
+	background-position:center top;
+	background-attachment:fixed;
+    padding: 15px;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+}
