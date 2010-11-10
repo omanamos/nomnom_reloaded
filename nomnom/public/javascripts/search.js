@@ -5,9 +5,9 @@ $(document).ready(function(){
 	$('input.viewtoggle').click(viewRecipeBody);
 	
 	$('a.get_ingredients').fancybox({
-		'width'				: '75%',
-		'height'			: '75%',
-		'autoScale'			: false,
+		'width'				: '50%',
+		'height'			: '90%',
+		'autoScale'			: true,
 		'transitionIn'		: 'elastic',
 		'transitionOut'		: 'elastic',
 		'type'				: 'iframe'

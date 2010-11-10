@@ -10,6 +10,9 @@ javascripts:
   - jquery 
   - jquery.fancybox
   - jquery.ui
+- conflict:
+  - conflict
+
 stylesheets:
 - base:
   - application
