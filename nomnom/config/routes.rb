@@ -8,6 +8,7 @@ Nomnom::Application.routes.draw do
   match 'search' => 'search#index'
   match 'help' => 'help#index'
   match 'about' => 'about#index'
+  match 'conflict' => 'conflict#index'
   
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

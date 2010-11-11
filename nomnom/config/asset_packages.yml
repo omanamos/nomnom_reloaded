@@ -7,11 +7,20 @@ javascripts:
   - home
 - search:
   - search
+  - jquery 
+  - jquery.fancybox
+  - jquery.ui
+- conflict:
+  - conflict
 
 stylesheets:
 - base:
   - application
+  - jquery.fancybox
+  - jquery.ui
 - home:
   - home
 - search:
   - search
+- conflict:
+  - conflict

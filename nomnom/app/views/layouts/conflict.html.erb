@@ -10,11 +10,6 @@
 		<%= csrf_meta_tag %>
 	</head>
 	<body>
-		<div id="container">
 			<%= yield %>
-			<p id="footer">
-				<a href="<%= url_for :controller => 'about', :action => 'index' %>">About</a> &bull; <a href="<%= url_for :controller => 'help', :action => 'index' %>">Help</a>
-			</p>
-		</div>
 	</body>
 </html>
