@@ -5,13 +5,13 @@
 		<p id="disclaimer">
 			We think we know what you should buy for, but perhaps you should verify. Here are the relative items and quantities that we found!
 		</p>
-		<table>
+		<table class="ingredients">
 			<tr><th></th><th>Add?</th><th>Amount</th><th>Item</th>
 			<%- 
 			i = 1;
 			amountLess = [];	
 			for ingr in @recipe.ingredients -%>
-			<tr id="ingr_<%- i -%>" class="clickable">
+			<tr id="ingr_<%= i %>" class="ingredient">
 				<%- 
 				if ingr.amount != nil && ingr.amount != "null"
 					#unit = Unit.new(ingr.amount);
@@ -24,7 +24,7 @@
 					
 				-%>
 				<td><%= i %>)</td>
-				<td><input class="haveItCheck" type="checkbox" name="have_<%- i -%>" checked="checked" /></td>
+				<td class="include_item"><input type="checkbox" name="include_<%= i %>" checked="checked" /></td>
 				<td>
 					<select class="amount">
 						<option value="<%= amount %>"><%= amount %></option>
@@ -38,20 +38,22 @@
 				<%- 
 				else
 					amountLess.push(ingr);
-				end
-				
-				for ingr in amountLess -%>
-				<td class="ingredient">
+				end 
+				i += 1 -%>
+			</tr>
+		<%- end
+			for ingr in amountLess -%>
+			<tr class="ingredient">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>
 					<select class="item amountLess">
 						<option><%= ingr.item %></option>
 					</select>
 				</td>
-			<%- end -%>
 			</tr>
-			<%- 
-				i += 1;
-			end 
-			-%>
+		<%- end -%>
 		</table>
 		<button id="addToCart" class="button">Add To Cart!</button>
 </div>

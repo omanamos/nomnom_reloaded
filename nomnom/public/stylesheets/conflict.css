@@ -2,7 +2,6 @@ html {
 	height: 100%;
 	width: 100%;	
 }
-
 body {
     background-image: url('../images/pattern_brown.gif');
     background-color: #F29857;
@@ -20,7 +19,7 @@ body {
 #addToCart {
 	display: block;
 	height: 30px;
-	width: 90px;
+	width: 100px;
 	margin: auto;
 	margin-top: 20px;
 	text-align: center;
@@ -34,11 +33,8 @@ body {
 	min-width: 150px;	
 }
 
-.item.amountLess {
-	margin-left: 150px;	
-}
-
-.ingredients {
+table.ingredients {
+	border-collapse: collapse;
 	background-color: white;
 	border: 4px solid black;
 	width: 90%;
@@ -48,11 +44,11 @@ body {
 	clear: both;
 }
 
-.ingredient input.haveItCheck {
+tr.ingredient td.include_item input[type="checkbox"] {
 	margin-right: 10px;
 	margin-left: 5px;
 }
 
-.ingredient select {
+tr.ingredient select {
 	font-size: 10pt;	
 }

@@ -2,10 +2,27 @@ $(document).ready(function(){
 	//var amountWidth = ensureWidths(".amount", 0);
     //ensureWidths(".item", amountWidth, 10);
     $('#addToCart').click(addToCart);
+    $('tr.ingredient').click(toggleChecked);
+    $('tr.ingredient').hover(mouseOver, mouseOut);
 });
 
-function addToCart(){
-	
+function mouseOver(event){
+	$(this).css({
+		backgroundColor: '#CCCCCC',
+		cursor: 'pointer'
+	});
+}
+
+function mouseOut(event){
+	$(this).css('background', 'none');
+}
+
+function toggleChecked(event){
+	$('td.include_item input[type="checkbox"]', this).toggleChecked();
+}
+
+function addToCart(event){
+	$([{asin: 'B0017U4SNW', quantity: 1}, {asin: 'B0017U8GT4', quantity: 1}]).addToCart();
 }
 
 function ensureWidths(class, leftMargin, offset) {
