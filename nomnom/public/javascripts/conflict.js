@@ -1,7 +1,12 @@
 $(document).ready(function(){
-	var amountWidth = ensureWidths(".amount", 0);
-    ensureWidths(".item", amountWidth, 10);
+	//var amountWidth = ensureWidths(".amount", 0);
+    //ensureWidths(".item", amountWidth, 10);
+    $('#addToCart').click(addToCart);
 });
+
+function addToCart(){
+	
+}
 
 function ensureWidths(class, leftMargin, offset) {
 	var maxWidth = 0;

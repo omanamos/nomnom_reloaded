@@ -5,13 +5,14 @@
 		<p id="disclaimer">
 			We think we know what you should buy for, but perhaps you should verify. Here are the relative items and quantities that we found!
 		</p>
-		<pre>   Add?    Amount         Item</pre>
-		<%- 
-		i = 1;
-		amountLess = [];	
-		for ingr in @recipe.ingredients -%>
-		<div id="ingr_<%- i -%>" class="ingredient">
+		<table>
+			<tr><th></th><th>Add?</th><th>Amount</th><th>Item</th>
 			<%- 
+			i = 1;
+			amountLess = [];	
+			for ingr in @recipe.ingredients -%>
+			<tr id="ingr_<%- i -%>" class="clickable">
+				<%- 
 				if ingr.amount != nil && ingr.amount != "null"
 					#unit = Unit.new(ingr.amount);
 					#unit2 = Unit.new("cup");
@@ -21,31 +22,36 @@
 						amount = ingr.amount
 					#end
 					
-			-%>
-			<span><%= "%02d" % i %>)&nbsp;</span>
-			<input class="haveItCheck" type="checkbox" name="have_<%- i -%>" checked="checked" />
-			<select class="amount">
-				<option><%= amount %></option>
-			</select>
-			<select class="item">
-				<option><%= ingr.item %></option>
-			</select>			
+				-%>
+				<td><%= i %>)</td>
+				<td><input class="haveItCheck" type="checkbox" name="have_<%- i -%>" checked="checked" /></td>
+				<td>
+					<select class="amount">
+						<option value="<%= amount %>"><%= amount %></option>
+					</select>
+				</td>
+				<td>
+					<select class="item">
+						<option value="<%= ingr.item %>"><%= ingr.item %></option>
+					</select>
+				</td>			
+				<%- 
+				else
+					amountLess.push(ingr);
+				end
+				
+				for ingr in amountLess -%>
+				<td class="ingredient">
+					<select class="item amountLess">
+						<option><%= ingr.item %></option>
+					</select>
+				</td>
+			<%- end -%>
+			</tr>
 			<%- 
 				i += 1;
-			else
-				amountLess.push(ingr);
-			end -%>
-		</div>
-		<%- end -%>
-		<%- for ingr in amountLess -%>
-		<div class="ingredient">
-			<select class="item amountLess">
-				<option><%= ingr.item %></option>
-			</select>
-		</div>
-		<%- 
-			i += 1;
-		end 
-		-%>
+			end 
+			-%>
+		</table>
 		<button id="addToCart" class="button">Add To Cart!</button>
 </div>

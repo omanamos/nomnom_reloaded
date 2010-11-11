@@ -12,6 +12,7 @@ javascripts:
   - jquery.ui
 - conflict:
   - conflict
+  - jquery.amzcart
 
 stylesheets:
 - base:
