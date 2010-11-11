@@ -1,37 +1,43 @@
 <%- content_for(:context) do -%>search<%- end -%>
 <%- num_recipes = @results.docs.length -%>
-<h1>Found <%= num_recipes %> Recipe<%=(num_recipes != 1) ? "s" : ""%>:</h1>
-<%- if @results.suggest? -%>
+
+<h4>Found <%= num_recipes %> Recipe<%=(num_recipes != 1) ? "s" : ""%>.</h4>
+
+<%- if @results.suggest? and @results.total == 0 and @results.suggest != @query -%>
 <p>Did you mean <a href="<%=url_for :controller => 'search', :action => 'index'%>?query=<%= @results.suggest %>"><%= @results.suggest %></a>?</p>
 <%- end -%>
 <div id="recipesbox">
     <%-
         for i in (0..(num_recipes - 1))
-        	recipe = @results.docs[i]
+        	recipe = @results.docs[i];
+        	recipe_url = "http://recipes.wikia.com/wiki/" + recipe.title.gsub(" ", "_");
             text_id = "body_" + i.to_s;
             button_id = "toggle_" + i.to_s;
+            ingr_id = "ingredient_" + i.to_s;
     -%>
-        <div class="reciptitle">
-            <%= recipe.title %>
-            <input id="<%= button_id %>" type="submit" class="viewtoggle button ingredbutton" value="View Recipe"/>
-            <input class="button ingredbutton" type="submit" value="Get Ingredients"/>
-        </div>
-        <div id="<%= text_id %>" class="recipe_content">
-        	<h3>Ingredients</h3>
-        	<ul>
-        		<%- for ingr in recipe.ingredients -%>
-        		<li>
-        			<%= ingr.amount + " " + ingr.item%>
-        		</li>
-        		<%- end -%>
-        	</ul>
-        	<h3>Directions</h3>
-           	<pre class="recipe_directions">
+    	<div class="recipe">
+	        <div class="recipetitle">
+	            <a class="original_recipe" href="<%= recipe_url %>"><%= recipe.title %></a>
+	        </div>
+	        <a class="ingredbutton get_ingredients" href="<%=url_for :controller => 'conflict', :action => 'index'%>?recipeID=<%= recipe.id %>">Get Ingredients</a>
+	        <input id="<%= button_id %>" type="submit" class="viewtoggle button ingredbutton" value="View Recipe"/>
+	        <div id="<%= text_id %>" class="recipe_content">
+	        	<h3>Ingredients</h3>
+	        	<ul>
+	        		<%- for ingr in recipe.ingredients -%>
+	        		<li>
+	        			<%= ingr.amount + " " + ingr.item%>
+	        		</li>
+	        		<%- end -%>
+	        	</ul>
+	        	<h3>Directions</h3>
+	           	<p class="recipe_directions">
 <%=recipe.directions%>
-            </pre>
-        </div>
-            <%- if i < (num_recipes - 1) -%>
-                <hr />
-            <%- end -%>
+	            </p>
+	        </div>
+		</div>
+	            <%- if i < (num_recipes - 1) -%>
+	                <hr />
+	            <%- end -%>
     <%- end -%>
 </div>

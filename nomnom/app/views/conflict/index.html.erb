@@ -1,0 +1,59 @@
+<%- content_for(:context) do -%>conflict<%- end -%>
+
+<div id="<%= @recipe.id %>" class="ingredients">
+		<strong><%= @recipe.title %></strong>
+		<p id="disclaimer">
+			We think we know what you should buy for, but perhaps you should verify. Here are the relative items and quantities that we found!
+		</p>
+		<table class="ingredients">
+			<tr><th></th><th>Add?</th><th>Amount</th><th>Item</th>
+			<%- 
+			i = 1;
+			amountLess = [];	
+			for ingr in @recipe.ingredients -%>
+			<tr id="ingr_<%= i %>" class="ingredient">
+				<%- 
+				if ingr.amount != nil && ingr.amount != "null"
+					#unit = Unit.new(ingr.amount);
+					#unit2 = Unit.new("cup");
+					#if unit.compatible? unit2
+					#	amount = unit >> "cup"
+					#else 
+						amount = ingr.amount
+					#end
+					
+				-%>
+				<td><%= i %>)</td>
+				<td class="include_item"><input type="checkbox" name="include_<%= i %>" checked="checked" /></td>
+				<td>
+					<select class="amount">
+						<option value="<%= amount %>"><%= amount %></option>
+					</select>
+				</td>
+				<td>
+					<select class="item">
+						<option value="<%= ingr.item %>"><%= ingr.item %></option>
+					</select>
+				</td>			
+				<%- 
+				else
+					amountLess.push(ingr);
+				end 
+				i += 1 -%>
+			</tr>
+		<%- end
+			for ingr in amountLess -%>
+			<tr class="ingredient">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>
+					<select class="item amountLess">
+						<option><%= ingr.item %></option>
+					</select>
+				</td>
+			</tr>
+		<%- end -%>
+		</table>
+		<button id="addToCart" class="button">Add To Cart!</button>
+</div>

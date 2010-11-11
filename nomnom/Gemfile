@@ -12,7 +12,7 @@ gem 'automatic_foreign_key'
 gem 'asset_packager'
 gem 'authlogic'
 gem 'rubyzip'
-gem 'xml-simple'
+gem 'ruby-units'
 
 # Use unicorn as the web server
 # gem 'unicorn'
