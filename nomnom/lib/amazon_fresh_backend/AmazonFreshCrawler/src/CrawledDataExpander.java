@@ -105,11 +105,8 @@ public class CrawledDataExpander {
 		// Iterates over the entries and for each entry, generates an
 		// appropriate file.
 		while (i.hasNext()) {
-			String fileName = UUID.randomUUID().toString();
-			OutputStream out = new FileOutputStream(destinationFolder + "/"
-					+ fileName);
-
 			ArchiveRecord record = i.next();
+
 			String url = record.getHeader().getUrl();
 			String mime = record.getHeader().getMimetype();
 			Pattern productUrl = Pattern.compile(PRODUCT_URL_REGEX);
@@ -118,9 +115,13 @@ public class CrawledDataExpander {
 			// Sanity check to verify that each document is text/html and that
 			// the URL matches the pattern for a product URL.
 			if (mime.equals(MIME_TYPE) && urlMatcher.matches()) {
+				String fileName = UUID.randomUUID().toString();
+				OutputStream out = new FileOutputStream(destinationFolder + "/"
+						+ fileName);
 				record.dump(out);
+
+				out.flush();
 			}
-			out.flush();
 
 		}
 	}
