@@ -33,6 +33,11 @@ body {
 	min-width: 150px;	
 }
 
+#item_add{
+	width: 1000px;
+	height: 800px;
+}
+
 table.ingredients {
 	border-collapse: collapse;
 	background-color: white;

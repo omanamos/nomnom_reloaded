@@ -22,7 +22,13 @@ function toggleChecked(event){
 }
 
 function addToCart(event){
-	$([{asin: 'B0017U4SNW', quantity: 1}, {asin: 'B0017U8GT4', quantity: 1}]).addToCart();
+	$([{
+		asin: 'B000NSH21E', 
+		quantity: 1
+	}, {
+		asin: 'B0017U8GT4', 
+		quantity: 1
+	}]).addToCart();
 }
 
 function ensureWidths(class, leftMargin, offset) {
