@@ -1,3 +1,10 @@
+a{
+	text-decoration: none;
+	color: #45341F;
+}
+a:hover{
+	text-decoration: underline;
+}
 body {
     background-image: url('../images/croissants.jpg');
     background-color: #F29857;
@@ -48,8 +55,37 @@ input.page_top_button {
 #header {
 	margin-bottom: 15px;	
 }
-
-a {
-	text-decoration: none;	
-}
+	#taskbar{
+		width: 800px;
+		overflow: hidden;
+	}
+		#welcome{
+			float: left;
+		}
+		#login{
+			float: right;
+			height: 26px;
+		}
+			#login_form{
+				display: none;
+			}
+				#login_form input{
+					width: 100px;
+					height: 22px;
+					border: 1px solid #666666;
+					background-color: #756249;
+					color: #ffffff;
+					font-size: 12px;
+				}
+				#login_form input[type="submit"]{
+					width: auto;
+					height: 26px;
+					padding: 1px;
+					background-color: #B0B0B0;
+					color: #000000;
+				}
+				#login_form input.default_value{
+					color: #cccccc;
+					text-align: center;
+				}
 

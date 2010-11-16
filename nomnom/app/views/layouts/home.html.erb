@@ -11,6 +11,24 @@
 	</head>
 	<body>
 		<div id="container">
+			<div id="header">
+				<div id="taskbar">
+					<div id="welcome">
+						Welcome, <%= logged_in? ? current_user.fl_name : "Guest" %>
+					</div>
+					<div id="login">
+						<div id="login_links">
+							<a id="show_login" href="#">Login</a>
+							<a id="sign_up" href="/signup">Sign Up</a>
+						</div>
+						<form id="login_form">
+							<input id="email" class="format" name="user_session[email]" type="text" value="Email" maxlength="50" />
+							<input id="password" class="format" name="user_session[password]" type="password" value="Password" maxlength="50" />
+							<input id="submit_login" type="submit" value="Login" />
+						</form>
+					</div>
+				</div>
+			</div>
 			<%= yield %>
 			<p id="footer">
 				<a href="<%= url_for :controller => 'about', :action => 'index' %>">About</a> &bull; <a href="<%= url_for :controller => 'help', :action => 'index' %>">Help</a>
