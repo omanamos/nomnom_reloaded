@@ -3,6 +3,9 @@ $(document).ready(function(){
     //ensureWidths(".item", amountWidth, 10);
     $('#addToCart').click(addToCart);
     $('tr.ingredient').click(toggleChecked);
+    $('.include_item input').click(function(e) {
+    	e.stopPropagation();	
+    });
     $('tr.ingredient').hover(mouseOver, mouseOut);
 });
 
@@ -31,6 +34,7 @@ function addToCart(event){
 	}]).addToCart();
 }
 
+//Legacy function, keep it for kicks
 function ensureWidths(class, leftMargin, offset) {
 	var maxWidth = 0;
 	$(class).each(function(idx, element) {
