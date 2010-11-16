@@ -1,5 +1,15 @@
 nomnom/config/database.yml
 nomnom/lib/xml/ParseRecipes/recipes_xml/*
+nomnom/public/stylesheets/search_packaged.css
+nomnom/public/stylesheets/base_packaged.css
+nomnom/public/javascripts/search_packaged.js
+nomnom/public/javascripts/base_packaged.js
+nomnom/public/javascripts/conflict_packaged.js
+nomnom/public/stylesheets/conflict_packaged.css
+
+nomnom/public/stylesheets/*_packaged.css
+nomnom/public/javascripts/*_packaged.js
 *~
 nomnom/solr/*
 solr/*
+*.zip
