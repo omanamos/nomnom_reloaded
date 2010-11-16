@@ -85,6 +85,7 @@ GEM
     treetop (1.4.8)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
+    xml-simple (1.0.12)
 
 PLATFORMS
   ruby
@@ -99,3 +100,4 @@ DEPENDENCIES
   rails (= 3.0.1)
   ruby-units
   rubyzip
+  xml-simple
