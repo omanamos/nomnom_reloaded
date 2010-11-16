@@ -25,7 +25,9 @@
 					
 				-%>
 				<td><%= i %>)</td>
-				<td class="include_item"><input type="checkbox" name="include_<%= i %>" checked="checked" /></td>
+				<td class="include_item">
+					<input type="checkbox" name="include_<%= i %>" checked="checked" />
+				</td>
 				<td>
 					<select class="amount">
 						<option value="<%= amount %>"><%= amount %></option>
@@ -45,8 +47,10 @@
 		<%- end
 			for ingr in amountLess -%>
 			<tr class="ingredient">
-				<td></td>
-				<td></td>
+				<td><%= i %>)</td>
+				<td class="include_item">
+					<input type="checkbox" name="include_<%= i %>" checked="checked" />
+				</td>
 				<td></td>
 				<td>
 					<select class="item amountLess">
@@ -54,7 +58,9 @@
 					</select>
 				</td>
 			</tr>
-		<%- end -%>
+		<%- 
+			i += 1;
+		end -%>
 		</table>
 		<button id="addToCart" class="button">Add To Cart!</button>
 </div>
