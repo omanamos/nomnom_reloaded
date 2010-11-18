@@ -1,5 +1,5 @@
 (function( $ ){
-	$.fn.formatter = function() {
+	$.fn.formatter = function(default_values) {
 		
 		// if nothing is selected, return nothing; can't chain anyway
 		if (!this.length) {
@@ -34,6 +34,13 @@
 				}
 			}
 		};
+		
+		var def = {};
+		this.each(function(){
+			def[this.id] = this.value;
+		});
+		$.extend(def, default_values);
+		
 		this.each(function(){
 			$this = $(this);
 			if(!$this.data('formatter')){
@@ -44,7 +51,7 @@
 					$.tmpl('<input id="dummy_${id}" class="default_value" name="dummy_${name}" type="text" value="${value}" maxlength="50" />', {
 						id: this.id,
 						name: $this.attr('name'),
-						value: $this.val()
+						value: def[this.id]
 					}).insertAfter($this);
 					
 					$this.val('');
@@ -64,9 +71,10 @@
 					dummy.focus(methods.focus);
 				}else{
 					$this.addClass("default_value");
-					$(this).data('formatter',{
+					$this.val(def[this.id]);
+					$this.data('formatter',{
 						has_dummy: has_dummy,
-						default_value: $this.val()
+						default_value: def[this.id]
 					});
 					$this.focus(methods.focus);
 				}

@@ -10,6 +10,9 @@ Nomnom::Application.routes.draw do
   match 'about' => 'about#index'
   match 'conflict' => 'conflict#index'
   
+  match 'login' => 'user_sessions#create'
+  match 'logout' => 'user_sessions#destroy'
+  
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

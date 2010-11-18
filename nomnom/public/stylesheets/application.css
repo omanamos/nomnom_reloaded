@@ -56,6 +56,7 @@ input.page_top_button {
 	margin-bottom: 15px;	
 }
 	#taskbar{
+		padding-bottom: 10px;
 		width: 800px;
 		overflow: hidden;
 	}
@@ -66,12 +67,19 @@ input.page_top_button {
 			float: right;
 			height: 26px;
 		}
+			#logged_in{
+				display: none;
+			}
 			#login_form{
 				display: none;
 			}
+				#cancel_login{
+					cursor: pointer;
+					vertical-align: middle;
+				}
 				#login_form input{
 					width: 100px;
-					height: 22px;
+					height: 20px;
 					border: 1px solid #666666;
 					background-color: #756249;
 					color: #ffffff;
@@ -79,10 +87,12 @@ input.page_top_button {
 				}
 				#login_form input[type="submit"]{
 					width: auto;
-					height: 26px;
+					height: 20px;
 					padding: 1px;
-					background-color: #B0B0B0;
+					cursor: pointer;
+					background-color: #756249;
 					color: #000000;
+					border: 1px solid #666666;
 				}
 				#login_form input.default_value{
 					color: #cccccc;
