@@ -67,9 +67,6 @@ input.page_top_button {
 			float: right;
 			height: 26px;
 		}
-			#logged_in{
-				display: none;
-			}
 			#login_form{
 				display: none;
 			}

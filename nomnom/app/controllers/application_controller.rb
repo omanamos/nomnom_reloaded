@@ -15,6 +15,6 @@ class ApplicationController < ActionController::Base
     end
     
     def logged_in?
-    	defined?(@current_user)
+    	defined?(current_user_session) && defined?(current_user_session.user)
     end
 end

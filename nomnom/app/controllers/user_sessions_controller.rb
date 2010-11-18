@@ -17,6 +17,7 @@ class UserSessionsController < ApplicationController
   private
 
   def successful(session)
+  	@current_user_session = session
     render :json => { :name => session.user.fl_name, :success => true }
   end
 
