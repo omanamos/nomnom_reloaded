@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	validates_presence_of :role
+	validates_presence_of :role, :first_name, :last_name
 	acts_as_authentic
 	
 	def fl_name

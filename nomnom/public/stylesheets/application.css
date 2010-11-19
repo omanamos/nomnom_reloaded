@@ -1,9 +1,19 @@
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
 a{
 	text-decoration: none;
 	color: #45341F;
 }
 a:hover{
 	text-decoration: underline;
+}
+
+a:visited, img {
+	border: none;	
 }
 body {
     background-image: url('../images/croissants.jpg');
@@ -12,7 +22,7 @@ body {
 	background-position:center top;
 	background-attachment:fixed;
     padding: 15px;
-    font-family: Geneva, Arial, Helvetica, sans-serif;
+    color: #333;
 }
 
 #container {
@@ -60,6 +70,14 @@ input.page_top_button {
 		width: 800px;
 		overflow: hidden;
 	}
+		#flash{
+			display: none;
+			float: left;
+			border: 2px solid red;
+			color: red;
+			margin-left: 140px;
+			padding: 0 10px;
+		}
 		#welcome{
 			float: left;
 		}

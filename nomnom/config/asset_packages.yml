@@ -27,3 +27,5 @@ stylesheets:
   - search
 - conflict:
   - conflict
+- user:
+  - scaffold

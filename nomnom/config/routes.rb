@@ -1,4 +1,6 @@
 Nomnom::Application.routes.draw do
+  resources :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 	
@@ -12,6 +14,8 @@ Nomnom::Application.routes.draw do
   
   match 'login' => 'user_sessions#create'
   match 'logout' => 'user_sessions#destroy'
+  match 'signup' => 'users#new'
+  match 'account' => 'users#edit'
   
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

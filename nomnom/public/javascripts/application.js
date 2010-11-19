@@ -8,9 +8,13 @@ $(document).ready(function(){
 	$('#login_form').submit(login);
 	$('#cancel_login').click(hideLogin);
 	$('#logout').click(logout);
+	if($('#flash').html() != ''){
+		$('#flash').show();
+	}
 });
 
 function showLogin(){
+	$('#flash').hide();
 	$('#login_links').fadeOut('fast', function(){
 		$('#login_form').fadeIn('slow');
 	});
