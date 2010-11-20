@@ -1,3 +1,20 @@
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+a{
+	text-decoration: none;
+	color: #45341F;
+}
+a:hover{
+	text-decoration: underline;
+}
+
+a:visited, img {
+	border: none;	
+}
 body {
     background-image: url('../images/croissants.jpg');
     background-color: #F29857;
@@ -5,7 +22,7 @@ body {
 	background-position:center top;
 	background-attachment:fixed;
     padding: 15px;
-    font-family: Geneva, Arial, Helvetica, sans-serif;
+    color: #333;
 }
 
 #container {
@@ -48,8 +65,52 @@ input.page_top_button {
 #header {
 	margin-bottom: 15px;	
 }
-
-a {
-	text-decoration: none;	
-}
+	#taskbar{
+		padding-bottom: 10px;
+		width: 800px;
+		overflow: hidden;
+	}
+		#flash{
+			display: none;
+			float: left;
+			border: 2px solid red;
+			color: red;
+			margin-left: 140px;
+			padding: 0 10px;
+		}
+		#welcome{
+			float: left;
+		}
+		#login{
+			float: right;
+			height: 26px;
+		}
+			#login_form{
+				display: none;
+			}
+				#cancel_login{
+					cursor: pointer;
+					vertical-align: middle;
+				}
+				#login_form input{
+					width: 100px;
+					height: 20px;
+					border: 1px solid #666666;
+					background-color: #756249;
+					color: #ffffff;
+					font-size: 12px;
+				}
+				#login_form input[type="submit"]{
+					width: auto;
+					height: 20px;
+					padding: 1px;
+					cursor: pointer;
+					background-color: #756249;
+					color: #000000;
+					border: 1px solid #666666;
+				}
+				#login_form input.default_value{
+					color: #cccccc;
+					text-align: center;
+				}
 
