@@ -23,9 +23,13 @@
 .recipetitle {
 	float: left;
     text-align: left;
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 8px;
     max-width: 440px;
+}
+
+.recipetitle:hover{
+	text-decoration:underline;
 }
 
 .recipe_content {

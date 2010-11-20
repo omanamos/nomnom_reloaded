@@ -15,7 +15,7 @@ $(document).ready(function(){
 	
 	$('a.original_recipe').fancybox({
 		'width'				: '75%',
-		'height'			: '75%',
+		'height'			: '90%',
 		'autoScale'			: false,
 		'transitionIn'		: 'elastic',
 		'transitionOut'		: 'elastic',
@@ -33,7 +33,6 @@ function getRecipeNames(request, callback) {
 }
 
 function viewRecipeBody() {
-    // access the JS DOM objects for the two text boxes on the page
     var text = $("#body_" + this.id.split("_")[1]);
     if(text.css("display") == "none") {
         text.slideDown(500);
