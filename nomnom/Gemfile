@@ -13,6 +13,7 @@ gem 'asset_packager'
 gem 'authlogic'
 gem 'rubyzip'
 gem 'ruby-units'
+gem 'xml-simple'
 
 # Use unicorn as the web server
 # gem 'unicorn'

@@ -11,6 +11,9 @@
 	</head>
 	<body>
 		<div id="container">
+			<div id="header">
+				<%= render_taskbar %>
+			</div>
 			<%= yield %>
 			<p id="footer">
 				<a href="<%= url_for :controller => 'about', :action => 'index' %>">About</a> &bull; <a href="<%= url_for :controller => 'help', :action => 'index' %>">Help</a>
