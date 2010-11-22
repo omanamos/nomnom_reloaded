@@ -49,3 +49,13 @@ java.lang.RuntimeException: No python nature for project: ParseRecipes
 	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:880)
 	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1083)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SESSION 2010-11-22 01:35:33.381 -----------------------------------------------
+eclipse.buildId=M20080911-1700
+java.version=1.6.0_22
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=carbon, NL=en_US
+Framework arguments:  -keyring /Users/royman/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws carbon -arch x86 -data /Users/royman/Code/cse454/nomnom_reloaded/nomnom/lib/xml -keyring /Users/royman/.eclipse_keyring -consoleLog -showlocation
+
+!ENTRY org.eclipse.core.resources 2 10035 2010-11-22 01:35:34.606
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.

@@ -29,14 +29,11 @@ body {
 	font-size: 16px;	
 }
 
-.item, .amount {
-	min-width: 150px;	
-}
 
 table.ingredients {
 	border-collapse: collapse;
 	background-color: white;
-	border: 4px solid black;
+	//border: 4px solid black;
 	width: 90%;
 	height: 90%;
 	padding: 30px;
@@ -51,4 +48,20 @@ tr.ingredient td.include_item input[type="checkbox"] {
 
 tr.ingredient select {
 	font-size: 10pt;	
+}
+
+tr.amount, tr.item {
+	min-width: 150px;	
+}
+
+tr.ingredient {
+	border-bottom: 2px solid grey;
+}
+
+tr.ingredient .expand {
+	width: 40px;	
+}
+
+tr.ingredient_expand {
+	display: none;	
 }

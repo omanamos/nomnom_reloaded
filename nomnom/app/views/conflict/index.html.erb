@@ -6,12 +6,12 @@
 			We think we know what you should buy for, but perhaps you should verify. Here are the relative items and quantities that we found!
 		</p>
 		<table class="ingredients">
-			<tr><th></th><th>Add?</th><th>Amount</th><th>Item</th>
+			<tr><th></th><th>Add?</th><th>Amount</th><th>Item</th><th></th>
 			<%- 
-			i = 1;
+			i = 0;
 			amountLess = [];	
 			for ingr in @recipe.ingredients -%>
-			<tr id="ingr_<%= i %>" class="ingredient">
+			<tr id="ingr_<%= i + 1 %>" class="ingredient">
 				<%- 
 				if ingr.amount != nil && ingr.amount != "null"
 					#unit = Unit.new(ingr.amount);
@@ -21,6 +21,7 @@
 					#else 
 						amount = ingr.amount
 					#end
+					i += 1
 					
 				-%>
 				<td><%= i %>)</td>
@@ -36,15 +37,26 @@
 					<select class="item">
 						<option value="<%= ingr.item %>"><%= ingr.item %></option>
 					</select>
+				</td>
+				<td class="expand">
+					V
 				</td>			
 				<%- 
 				else
 					amountLess.push(ingr);
-				end 
-				i += 1 -%>
+				end  -%>
 			</tr>
-		<%- end
-			for ingr in amountLess -%>
+			<tr id="ingr_expand_<%= i %>" class="ingredient_expand">
+				<td colspan="5">
+					Stuff <br />
+					More Stuff <br />
+					Lots of stuff
+				</td>
+			</tr>
+			<%- 
+			end
+			for ingr in amountLess 
+				i += 1 -%>
 			<tr class="ingredient">
 				<td><%= i %>)</td>
 				<td class="include_item">
@@ -56,10 +68,19 @@
 						<option><%= ingr.item %></option>
 					</select>
 				</td>
+				<td class="expand">
+					V
+				</td>
 			</tr>
-		<%- 
-			i += 1;
-		end -%>
+			<tr id="ingr_expand_<%= i %>" class="ingredient_expand">
+				<td colspan="5">
+					Stuff <br />
+					More Stuff <br />
+					Lot sof stuff
+				</td>
+			</tr>
+			<%- 
+			end -%>
 		</table>
 		<button id="addToCart" class="button">Add To Cart!</button>
 </div>

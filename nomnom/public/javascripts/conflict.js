@@ -3,11 +3,24 @@ $(document).ready(function(){
     //ensureWidths(".item", amountWidth, 10);
     $('#addToCart').click(addToCart);
     $('tr.ingredient').click(toggleChecked);
-    $('.include_item input').click(function(e) {
+    $('.include_item input, tr.ingredient .amount, tr.ingredient .item').click(function(e) {
     	e.stopPropagation();	
     });
+    $('td.expand').toggle(showIngredient, hideIngredient);
     $('tr.ingredient').hover(mouseOver, mouseOut);
 });
+
+function showIngredient(e) {
+   	e.stopPropagation();
+   	var num = parseInt($(this).parent().attr("id").split("_")[1]);
+   	$("#ingr_expand_" + num).slideDown(200);
+}
+
+function hideIngredient(e) {
+	e.stopPropagation();
+   	var num = parseInt($(this).parent().attr("id").split("_")[1]);
+   	$("#ingr_expand_" + num).slideUp(100);	
+}
 
 function mouseOver(event){
 	$(this).css({
