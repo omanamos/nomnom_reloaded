@@ -1,11 +1,11 @@
 import java.io.*;
 import java.text.*;
 import java.util.*;
-import org.apache.commons.lang.StringEscapeUtils;
+
 
 public class Recipe {
 	
-	private static final String FILE_PATH = "recipes_xml/";
+	private static final String FILE_PATH = "/Users/royman/Code/CSE 454/nomnom_reloaded/nomnom/lib/xml/ParseRecipes/recipes_xml/";
 	
 	private String title;
 	private String description;
@@ -15,10 +15,13 @@ public class Recipe {
 	private List<Ingredient> ingredients;
 	
 	public Recipe(String title, String description, String directions, int id) {
-		this.title = title;
+		this.title = cleanData(title);
+		if (title.isEmpty() || title == null) {
+			System.out.println("issue: " + id);
+		}
 		this.id = id;
-		this.description = description;
-		this.directions = "";
+		setDescription(description);
+		setDirections(directions);
 		ingredients = new ArrayList<Ingredient>();
 	}
 	
@@ -58,18 +61,43 @@ public class Recipe {
 	public String getDescription() {
 		return cleanData(description);
 	}
-	public void setDescription(String description) {
-		this.description = description;
+	public boolean setDescription(String description) {
+		String cleanDescription = cleanData(description);
+		if (cleanDescription != null) {
+			this.description = cleanDescription.split("Image:")[0];
+			return true;
+		}
+		return false;
 	}
 	public String getDirections() {
 		return directions;
 	}
 	
-	public void setDirections(String directions) {
-		this.directions = cleanData(directions);
+	public boolean setDirections(String directions) {
+		String cleanDirections = cleanData(directions.replace("\n", "*"));
+		if (cleanDirections != null) {
+			String result = "";
+			String[] temp = cleanDirections.replace("*", "\n").replace("#", "\n").split("\n");
+			for (int i = 0; i < temp.length; i++) {
+				if (!temp[i].trim().isEmpty()) {
+					result += temp[i].trim() + "\n";
+				}
+			}
+			this.directions = result.trim();
+			return true;
+		}
+		return false;
 	}
 	private String cleanData(String s) {
-		return s.replaceAll("\\[\\[|\\]\\]", "").replaceAll("\\s{1,}", " ").trim();
+		String result = "";
+		for (char c : s.toCharArray()) {
+			if (c < 128) {
+				result += c;
+			} else {
+				return null;
+			}
+		}
+		return result.replaceAll("<br>|<BR>", "\n").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("&nbsp;", " ").replace("[[", "").replace("]]", "").replaceAll("\\s{1,}", " ").replace("\n", "").replace("\t", "").trim();
 	}
 	public List<Ingredient> getIngredients() {
 		return ingredients;
@@ -89,12 +117,12 @@ public class Recipe {
 			ingredientsList += s;
 		}
 		return "<recipe>\n" +
-					"\t<title>" + StringEscapeUtils.escapeXml(StringEscapeUtils.unescapeXml(title)) + "</title>\n" + 
+					"\t<title>" + title + "</title>\n" + 
 					"\t<id>" + id + "</id>\n" + 
-					"\t<timestamp>" + timestamp.toString() + "</timestamp>\n" + 
-					"\t<description>" + StringEscapeUtils.escapeXml(StringEscapeUtils.unescapeXml(description)) + "</description>\n" + 
+					"\t<timestamp>" + timestamp + "</timestamp>\n" + 
+					"\t<description>" + description + "</description>\n" + 
 					"\t<ingredients>\n" + ingredientsList + "\t</ingredients>\n" + 
-					"\t<directions>" + StringEscapeUtils.escapeXml(StringEscapeUtils.unescapeXml(directions)) + "</directions>\n" +
+					"\t<directions>" + directions + "</directions>\n" +
 				"</recipe>";
 	}
 	
@@ -104,10 +132,13 @@ public class Recipe {
 	
 	public void writeToFile(String fileName) {
 		try {
-		PrintStream out = new PrintStream(new File(fileName));
-		out.print(this.toXML());
+			PrintStream out = new PrintStream(new File(fileName));
+			out.print(this.toXML());
 		} catch(IOException e) {
 			System.out.println("Could not print \"" + title + "\" to file " + fileName);
+			System.out.println(e);
+			e.printStackTrace();
+			//System.out.println(System.getProperties());
 		}
 	}
 	
@@ -115,7 +146,11 @@ public class Recipe {
 		return "<?xml version=\"1.0\"?>\n" + toString();
 	}
 	
-	public void writeToDatabase() {
-		
+	public String printDirections() {
+		return title + "\n" + directions + "\n\n";
 	}
+	
+	//public void writeToDatabase() {
+		
+	//}
 }

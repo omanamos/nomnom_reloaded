@@ -1,20 +1,21 @@
 import java.util.*;
 import java.util.regex.*;
-
 import org.apache.commons.lang.StringEscapeUtils;
 
 public class Ingredient {
 	
-	private static final String UNIT = "(pound|can|cup|ounce|quart|pint|quart|gallon|gram|teaspoon|tablespoon|liter|milliliter|kilogram|scoop|" +
-											"kg|tbl|teasp|tspn|ts|c|cm|lb|cp|oz|qt|gal|gm|tsp|tbsp|tbs|lt|g|lit|ml)(\\.|s|s\\.)*";
-	private static final String GUESS = "(dash|splash|tad|drop|pinch|shot|bottle|clove|tin|slice|bit)(s)*";
-	private static final String KIND = "(even|level|heaping|sifted|rounded|packed|minced|sliced|chopped|canned|sheet)";
-	private static final String NUM = "(\\d+\\S*|\\d+/\\d+|\\d+\\s*\\d+/\\d+|\\d+-\\d+|\\d*\\.\\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|\\d\\s*dozen)";
-	private static final String SIZE = "(small|medium|large|huge|tiny|few|lrg)";
-	private static final String STOP = "(a|an|the|some|app\\.|approximately|approx\\.)";
+	private static final String UNIT = "(pound|peice|jar|sheets|can|cup|ounce|quart|pint|quart|gallon|gram|teaspoon|tablespoon|liter|milliliter|kilogram|scoop|packet|" +
+											"kg|tbl|teasp|tspn|tb|c|cm|lb|cp|oz|qt|gal|gm|tsp|tbsp|ts|tbs|lt|g|lit|ml|pkt)(\\.|s|s\\.|)*\\s+";
+	private static final String GUESS = "(about|almost|dash|splash|tad|drop|pinch|shot|bottle|clove|tin|slice|bit|bunch)(s|es|)*";
+	private static final String KIND = "(even|level|heaping|grated|sifted|ground|rounded|packed|minced|sliced|chopped|canned|sheet)";
+	private static final String NUM_PART = "(\\d+/\\d+|\\d+\\s*\\d+/\\d+|\\d+\\s*-\\s*\\d+|\\d*\\.\\d+|\\d+\\s*|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|\\d*\\s*dozen)";
+	private static final String NUM = "(NUM_PART\\s*(to|-|or)\\s*NUM_PART|NUM_PART)".replace("NUM_PART", NUM_PART);
+	private static final String SIZE = "(small|medium|large|huge|tiny|few|lrg|lg|quarter|half|third|eighth)";
+	private static final String STOP = "(of |a |an |the |some |app\\. |approximately |approx\\. |approx |aprox\\. )";
 	private static final String DELIM = "[\\s\\?]";
+	private static final String SPECIFIC = "KIND*\\s*(salt and pepper|salt|pepper|ginger|oil|vegetable oil|lemon juice|lemon|margarine|butter|sugar|olive oil|water)+.*".replace("KIND", KIND);
 	
-	private static final String regex = ("(STOP*(NUM\\s*KIND\\s*SIZE\\s*GUESS|" +
+	private static final String regex = ("(STOP*\\s*((NUM\\s*KIND\\s*SIZE\\s*GUESS|" +
 										"NUM\\s*KIND\\s*SIZE\\s*UNIT|" +
 										"NUM\\s*KIND\\s*GUESS|" +
 										"NUM\\s*KIND\\s*UNIT|" +
@@ -22,18 +23,29 @@ public class Ingredient {
 										"NUM\\s*SIZE\\s*UNIT|" +
 										"NUM\\s*SIZE\\s*GUESS|" + 
 										"NUM\\s*GUESS|" +
-										"NUM\\s*UNIT|" + 
-										"NUM)?STOP*(\\([^\\)]*\\))?STOP*)" +
-										"(.*\\[\\[(.*)\\]\\].*)").replace("UNIT", UNIT).replace("KIND", KIND).replace("NUM", NUM).replace("SIZE", SIZE).replace("STOP", STOP).replace("GUESS", GUESS).replace("\\s", DELIM);
+										"NUM\\s*UNIT|" +
+										"NUM\\s*SIZE|" +
+										"GUESS\\s*NUM\\s*UNIT|" +
+										"GUESS\\s*NUM|" +
+										"SIZE\\s*UNIT|" +
+										"SIZE|" +
+										"KIND|" +
+										"UNIT|" +
+										"NUM|" +
+										"GUESS)(\\((NUM\\s*UNIT)\\))*)?"+
+										"\\s?STOP*\\s?(.*))").replace("UNIT", UNIT).replace("KIND", KIND).replace("NUM", NUM).replace("SIZE", SIZE).replace("STOP", STOP).replace("GUESS", GUESS).replace("SPECIFIC", SPECIFIC).replace("\\s", DELIM);
 	private static final Pattern p = Pattern.compile(Ingredient.regex);
+	private static final Pattern p2 = Pattern.compile(SPECIFIC);
 	
 	
 	private String item;
 	private String amount;
 	
 	public Ingredient(String item, String amount) {
-		this.item = item;
-		this.amount = amount;
+		this.item = clean(item);
+		if (amount != null) {
+			this.amount = clean(amount);
+		}
 	}
 	public Ingredient(String item) {
 		this(item, "");
@@ -41,37 +53,71 @@ public class Ingredient {
 	public Ingredient() {
 		this("", "");
 	}
+	private static String clean(String s) {
+		if (s.contains(",")) {
+			s = s.substring(0, s.indexOf(","));
+		}
+		String result = "";
+		for (char c : s.toCharArray()) {
+			if (c < 128) {
+				result += c;
+			} //else {
+				//return null;
+			//}
+		}
+		return result.replace("[[", "").replace("]]", "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replaceAll("\\s{1,}", " ").replace("\n", "").replace("\t", "").trim();
+	}
+	
+	public static String preclean(String s) {
+		return s.toLowerCase().replace("&nbsp;", " ").replace("<br>", "").replace("[[", "").replace("]]", "");
+	}
 	public String toString() {
 		return "\t\t\t<ingredient>\n" +
 					"\t\t\t\t<item>" + StringEscapeUtils.escapeXml(StringEscapeUtils.unescapeXml(item)) + "</item>\n" +
 					"\t\t\t\t<amount>" + StringEscapeUtils.escapeXml(StringEscapeUtils.unescapeXml(amount)) + "</amount>\n" +
 				"\t\t\t</ingredient>\n";
 	}
-	private static String stripBrackets(String item) {
-		return item.replace("[[", "").replace("]]", "");
-	}
-	private static String cleanFragment(String s) {
-		if (s.contains(",")) {
-			s = s.substring(0, s.indexOf(","));
-		}
-		return stripBrackets(s).trim().replaceAll("\\s{1,}", " ");
-	}
 	
 	public static Ingredient parseIngredient(String s) {
-		Matcher m = p.matcher(s.toLowerCase());
+		String s2 = preclean(s);
+		Matcher m = p.matcher(s2);
+		Matcher m2 = p2.matcher(s2);
+		//Parse amount and item
+		//System.out.println(p.toString());
 		if (m.matches()) {
-			String amount = m.group(1);
-			String item = m.group(m.groupCount() - 1);
+			String amount = m.group(3);
+			String item = m.group(m.groupCount());
 			if (amount != null && item != null) {
-				return new Ingredient(cleanFragment(item), cleanFragment(amount));
+				String cleanItem = clean(item);
+				String cleanAmount = clean(amount);
+				if (cleanItem != null && cleanAmount != null && !cleanItem.isEmpty() && !cleanAmount.isEmpty()) {
+					//System.out.println("MATCHED:" + s2 + "\n\t" + cleanAmount + "<>" + cleanItem);
+					//for (int i = 0; i <= m.groupCount(); i++) {
+					//	System.out.println(m.group(i));
+					//}
+					return new Ingredient(cleanItem, cleanAmount);
+				}
 			}
 		}
+		//Parse just the item if there is no amount
+		if (m2.matches()) {
+			String item = m2.group(m2.groupCount());
+			if (item != null) {
+				String cleanItem = clean(item);
+				//System.out.println("MATCHED:" + s2 + "\n\t" + cleanItem);
+				//for (int i = 0; i <= m2.groupCount(); i++) {
+				//	System.out.println(m2.group(i));
+				//}
+				return new Ingredient(cleanItem, null);
+			}
+		}
+		//System.out.println("NON_MATCHED:"+ s2);
 		return null;
 	}
-	
+	//Currently Not being used
 	public static Ingredient parseIngredient2(String s) {
 		if (!s.trim().isEmpty()) {
-			s = stripBrackets(s);
+			s = s.replace("[[", "").replace("]]", "");
 			Scanner tokens = new Scanner(s);
 			String amount = tokens.next();
 			if (tokens.hasNext()) {
@@ -81,8 +127,8 @@ public class Ingredient {
 			while (tokens.hasNext()) {
 				item += " " + tokens.next();
 			}
-			item = cleanFragment(item);
-			amount = cleanFragment(amount);
+			item = clean(item);
+			amount = clean(amount);
 			if (item.isEmpty()) {
 				return new Ingredient(amount.trim());
 			} else {
