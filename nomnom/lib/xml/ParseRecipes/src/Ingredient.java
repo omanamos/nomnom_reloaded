@@ -4,8 +4,9 @@ import org.apache.commons.lang.StringEscapeUtils;
 
 public class Ingredient {
 	
-	private static final String UNIT = "(pound|peice|jar|sheets|can|cup|ounce|quart|pint|quart|gallon|gram|teaspoon|tablespoon|liter|milliliter|kilogram|scoop|packet|" +
-											"kg|tbl|teasp|tspn|tb|c|cm|lb|cp|oz|qt|gal|gm|tsp|tbsp|ts|tbs|lt|g|lit|ml|pkt|x)(\\.|s|s\\.|)*\\s+";
+	private static final String UNIT_NOSPACE = "(pound|peice|jar|sheets|can|cup|ounce|quart|pint|quart|gallon|gram|teaspoon|tablespoon|liter|milliliter|kilogram|scoop|packet|" +
+											"kg|tbl|teasp|tspn|tb|c|cm|lb|cp|oz|qt|gal|gm|tsp|tbsp|ts|tbs|lt|g|lit|ml|pkt|x)(\\.|s|s\\.|)*";
+	private static final String UNIT = "UNIT_NOSPACE\\s+".replace("UNIT_NOSPACE", UNIT_NOSPACE);
 	private static final String GUESS = "(about|almost|dash|splash|tad|drop|pinch|shot|bottle|clove|tin|slice|bit|bunch)(s|es|)*";
 	private static final String KIND = "(even|level|heaping|grated|sifted|ground|rounded|packed|minced|sliced|chopped|canned|sheet)";
 	private static final String NUM_PART = "(\\d+/\\d+|\\d+\\s*\\d+/\\d+|\\d+\\s*-\\s*\\d+|\\d*\\.\\d+|\\d+\\s*|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|\\d*\\s*dozen)";
@@ -32,8 +33,8 @@ public class Ingredient {
 										"KIND|" +
 										"UNIT|" +
 										"NUM|" +
-										"GUESS)(\\((NUM\\s*UNIT)\\))*)?"+
-										"\\s?STOP*\\s?(.*))").replace("UNIT", UNIT).replace("KIND", KIND).replace("NUM", NUM).replace("SIZE", SIZE).replace("STOP", STOP).replace("GUESS", GUESS).replace("SPECIFIC", SPECIFIC).replace("\\s", DELIM);
+										"GUESS)(\\((NUM\\s*UNIT_NOSPACE)\\))*)?"+
+										"\\s?STOP*\\s?(.*))").replace("UNIT_NOSPACE", UNIT_NOSPACE).replace("UNIT", UNIT).replace("KIND", KIND).replace("NUM", NUM).replace("SIZE", SIZE).replace("STOP", STOP).replace("GUESS", GUESS).replace("SPECIFIC", SPECIFIC).replace("\\s", DELIM);
 	private static final Pattern p = Pattern.compile(Ingredient.regex);
 	private static final Pattern p2 = Pattern.compile(SPECIFIC);
 	

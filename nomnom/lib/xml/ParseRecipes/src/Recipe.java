@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Recipe {
 	
-	private static final String FILE_PATH = "/Users/royman/Code/CSE 454/nomnom_reloaded/nomnom/lib/xml/ParseRecipes/recipes_xml/";
+	private static final String FILE_PATH = "/Users/royman/Code/cse454/nomnom_reloaded/nomnom/lib/xml/ParseRecipes/recipes_xml/";
 	
 	private String title;
 	private String description;
@@ -84,6 +84,7 @@ public class Recipe {
 				}
 			}
 			this.directions = result.trim();
+			//System.out.println(this.directions);
 			return true;
 		}
 		return false;

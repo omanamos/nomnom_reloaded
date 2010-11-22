@@ -76,7 +76,7 @@ public class RecipeParseHandler extends DefaultHandler {
 					if (doc.getIngredients().size() > 0) {
 						recipes.add(doc);
 						//System.out.println(doc);
-						//doc.writeToIdFile();
+						doc.writeToIdFile();
 					}
 				}
 				totalPages++;
