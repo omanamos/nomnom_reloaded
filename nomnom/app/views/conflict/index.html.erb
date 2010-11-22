@@ -1,11 +1,12 @@
 <%- content_for(:context) do -%>conflict<%- end -%>
 
 <div id="<%= @recipe.id %>" class="ingredients">
+		<h4><%= @recipe.title %></h4>
 		<p id="disclaimer">
-			<h4><%= @recipe.title %></h4>
 			Here's what we think you need for this recipe.</br>
 			You can always customize the ingredients.
 		</p>
+		<br />
 		<table class="ingredients">
 			<tr><th></th><th>Add?</th><th>Amount</th><th>Item</th><th></th>
 			<%- 

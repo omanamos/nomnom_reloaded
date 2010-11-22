@@ -5,7 +5,7 @@ import org.apache.commons.lang.StringEscapeUtils;
 public class Ingredient {
 	
 	private static final String UNIT = "(pound|peice|jar|sheets|can|cup|ounce|quart|pint|quart|gallon|gram|teaspoon|tablespoon|liter|milliliter|kilogram|scoop|packet|" +
-											"kg|tbl|teasp|tspn|tb|c|cm|lb|cp|oz|qt|gal|gm|tsp|tbsp|ts|tbs|lt|g|lit|ml|pkt)(\\.|s|s\\.|)*\\s+";
+											"kg|tbl|teasp|tspn|tb|c|cm|lb|cp|oz|qt|gal|gm|tsp|tbsp|ts|tbs|lt|g|lit|ml|pkt|x)(\\.|s|s\\.|)*\\s+";
 	private static final String GUESS = "(about|almost|dash|splash|tad|drop|pinch|shot|bottle|clove|tin|slice|bit|bunch)(s|es|)*";
 	private static final String KIND = "(even|level|heaping|grated|sifted|ground|rounded|packed|minced|sliced|chopped|canned|sheet)";
 	private static final String NUM_PART = "(\\d+/\\d+|\\d+\\s*\\d+/\\d+|\\d+\\s*-\\s*\\d+|\\d*\\.\\d+|\\d+\\s*|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|\\d*\\s*dozen)";
