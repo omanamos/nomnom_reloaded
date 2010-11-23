@@ -3,7 +3,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Iterator;
-import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -68,8 +67,9 @@ public class CrawledDataExpander {
 
 	/**
 	 * Expands the next ARC file in the set of ARC files. A file is created for
-	 * each entry in the ARC file and is given a UUID name. It is the client's
-	 * responsibility to ensure that hasNext() returns true.
+	 * each entry in the ARC file and is given a name that corresponds to the
+	 * crawled date. It is the client's responsibility to ensure that hasNext()
+	 * returns true.
 	 * 
 	 * @throws IllegalStateException
 	 *             If called when there is no ARC file left to expand
@@ -86,7 +86,7 @@ public class CrawledDataExpander {
 
 	/**
 	 * Expands the given ARC file by writing each entry that corresponds to a
-	 * product to a separate file with a UUID name.
+	 * product to a separate file with the crawl date as the file name.
 	 * 
 	 * @param archive
 	 *            The File object representing the ARC file
@@ -102,6 +102,8 @@ public class CrawledDataExpander {
 			i.next();
 		}
 
+		int numWritten = 0;
+
 		// Iterates over the entries and for each entry, generates an
 		// appropriate file.
 		while (i.hasNext()) {
@@ -115,15 +117,29 @@ public class CrawledDataExpander {
 			// Sanity check to verify that each document is text/html and that
 			// the URL matches the pattern for a product URL.
 			if (mime.equals(MIME_TYPE) && urlMatcher.matches()) {
-				String fileName = UUID.randomUUID().toString();
-				OutputStream out = new FileOutputStream(destinationFolder + "/"
-						+ fileName);
-				record.dump(out);
+				String fileName = record.getHeader().getDate();
+				System.out.println("Checking " + fileName);
+				File file = new File(destinationFolder + "/" + fileName);
+				
+				if (!file.exists()) {
+					System.out.print("Writing file " + fileName + " ("
+							+ ++numWritten);
+					System.out.print(" written from " + archive.getName());
+					System.out.println(" so far.)");
+					
+					OutputStream out = new FileOutputStream(destinationFolder
+							+ "/" + fileName);
 
-				out.flush();
+					record.dump(out);
+
+					out.flush();
+				} else {
+					System.out.println("Skipping " + fileName + " since it exists.");
+				}
 			}
 
 		}
+		arc.close();
 	}
 
 	/**

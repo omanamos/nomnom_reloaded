@@ -1,6 +1,5 @@
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.util.List;
 
 import org.apache.solr.client.solrj.SolrServer;
 import org.apache.solr.client.solrj.SolrServerException;
@@ -15,26 +14,37 @@ import org.apache.solr.common.SolrInputField;
 public class ProductIndexer {
 
 	private SolrServer solrServer;
-	
+
 	public ProductIndexer(String solrUrl) throws MalformedURLException {
 		this.solrServer = new CommonsHttpSolrServer(solrUrl);
 	}
-	
-	public void index(List<SolrInputDocument> docs) throws SolrServerException, IOException  {
-		for (SolrInputDocument doc : docs) {
-			SolrInputField s = doc.getField("asin");
-			solrServer.deleteById((String) s.getValue());
-			System.out.println("Indexing " + doc);
-		}
-		
+
+	public void index(SolrInputDocument doc) throws SolrServerException,
+			IOException {
+		SolrInputField s = doc.getField("asin");
+		solrServer.deleteById((String) s.getValue());
+		System.out.print("Removing item with ASIN " + s.getValue());
+		System.out.println(" (if it exists).");
+
 		try {
-			solrServer.add(docs);
-			solrServer.commit();
+			System.out.println("Indexing " + doc);
+			solrServer.add(doc);
+
 		} catch (IOException e) {
-			System.out.println("Problem!");
+
 			solrServer.rollback();
 		}
-		
+
 	}
 	
+	public void commit() {
+		try {
+			solrServer.commit();
+		} catch (SolrServerException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 }

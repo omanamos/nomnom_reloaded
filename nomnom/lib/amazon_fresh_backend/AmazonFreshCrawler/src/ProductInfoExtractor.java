@@ -3,11 +3,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
+import java.net.MalformedURLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.common.SolrInputDocument;
 
 /**
@@ -22,21 +22,25 @@ import org.apache.solr.common.SolrInputDocument;
 public class ProductInfoExtractor {
 
 	private File[] productFiles;
-
+	private ProductIndexer indexer;
+	
+	private final int COMMIT_BATCH_SIZE = 500;
+	
 	/**
 	 * Constructs a new ProductInfoExtractor.
 	 * 
 	 * @param pathToData
+	 * @throws MalformedURLException 
 	 */
-	public ProductInfoExtractor(String pathToData) {
+	public ProductInfoExtractor(String pathToData, String solrUrl) throws MalformedURLException {
 		File dataDir = new File(pathToData);
 		if (!dataDir.isDirectory()) {
 			throw new IllegalArgumentException(
 					"The provided path does not correspond to a folder!");
 		}
 
-		UuidFileFilter uuidFilter = new UuidFileFilter();
-		this.productFiles = dataDir.listFiles(uuidFilter);
+		this.productFiles = dataDir.listFiles();
+		this.indexer = new ProductIndexer(solrUrl);
 	}
 
 	/**
@@ -86,11 +90,10 @@ public class ProductInfoExtractor {
 	 * 
 	 * @return A List of SolrInputDocuments.
 	 * @throws IOException
+	 * @throws SolrServerException 
 	 */
-	public List<SolrInputDocument> getSolrDocs() throws IOException {
-
-		List<SolrInputDocument> docs = new ArrayList<SolrInputDocument>();
-
+	public void indexSolrDocs() throws IOException, SolrServerException {
+		
 		Pattern asinPattern = Pattern.compile(".*<strong>ASIN:</strong>.*");
 		Pattern productNamePattern = Pattern.compile(".*<h1>.*</h1>.*");
 		Pattern pricePattern = Pattern.compile(".*class=\"value\".*");
@@ -98,7 +101,10 @@ public class ProductInfoExtractor {
 		Matcher asinMatcher = asinPattern.matcher("");
 		Matcher productNameMatcher = productNamePattern.matcher("");
 
+		int count = 0;
+		
 		for (File file : this.productFiles) {
+			
 			FileInputStream fis = new FileInputStream(file);
 			BufferedReader in = new BufferedReader(new InputStreamReader(fis));
 			Matcher priceMatcher = pricePattern.matcher("");
@@ -144,18 +150,21 @@ public class ProductInfoExtractor {
 
 			}
 
+			
 			SolrInputDocument doc = preapreSolrDoc(asin, simpleProductName,
 					additionalProductInfo, priceInCents);
 
-			// Ensures that documents that are ill-formatted are not added to
-			// the final list of input documents.
+			System.out.println(++count + ": Extracted " + doc);
 			if (doc != null) {
-				docs.add(doc);
+				indexer.index(doc);
+			}
+			
+			if (count % COMMIT_BATCH_SIZE == 0) {
+				indexer.commit();
 			}
 
 		}
-
-		return docs;
+		indexer.commit();
 	}
 
 	/**
