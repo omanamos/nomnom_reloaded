@@ -30,6 +30,8 @@ public class RecipeParseHandler extends DefaultHandler {
 	private boolean isTimestamp = false;
 	private boolean isText = false;
 	private boolean isID = false;
+	private int recipeCount = 0;
+	private int totalPages = 0;
 
 	private Recipe doc = null;
 	private List<Recipe> recipes = new ArrayList<Recipe>();
@@ -70,9 +72,14 @@ public class RecipeParseHandler extends DefaultHandler {
 			case PAGE:
 				isPage = false;
 				if (validPage) {
-					recipes.add(doc);
-					doc.writeToIdFile();
+					//System.out.println(doc.printDirections());
+					if (doc.getIngredients().size() > 0) {
+						recipes.add(doc);
+						//System.out.println(doc);
+						doc.writeToIdFile();
+					}
 				}
+				totalPages++;
 				validPage = false;
 			break;
 			case TITLE:
@@ -96,7 +103,9 @@ public class RecipeParseHandler extends DefaultHandler {
 	}
 
 	public void endDocument() {
-		System.out.println(recipes.size());
+		System.out.println("Total pages found: " + totalPages);		
+		System.out.println("Total recognized recipes: " + recipeCount);
+		System.out.println("Total recipes cleaned and saved: " + recipes.size());
 	}
 
 	private List<String> parseList(String s) {
@@ -141,7 +150,9 @@ public class RecipeParseHandler extends DefaultHandler {
 
 		if (peices.length > 1 && validPage) {
 			String description = peices[1].split("[=]{2,3}")[0].trim();
-			doc.setDescription(description);
+			if (validPage && !doc.setDescription(description)) {
+				invalidate();
+			}
 		}
 
 		//Grab the description data
@@ -157,7 +168,9 @@ public class RecipeParseHandler extends DefaultHandler {
 			}
 			*/
 			String directions = peices[1].split("[=]{2,3}")[0].trim();
-			doc.setDirections(directions);
+			if (validPage && !doc.setDirections(directions)) {
+				invalidate();
+			}
 		}
 
 		resetBuilder();
@@ -178,6 +191,7 @@ public class RecipeParseHandler extends DefaultHandler {
 		String title = tagContents.toString();
 		boolean result = false;
 		if (title.indexOf(":") == -1) {
+			recipeCount++;
 			doc = new Recipe(title);
 			result = true;
 		}
