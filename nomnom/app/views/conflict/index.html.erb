@@ -38,6 +38,13 @@
 				<td>
 					<select class="item">
 						<option value="<%= ingr.item %>"><%= ingr.item %></option>
+						<%-
+							for item in @results[ingr.item]['response']['docs']
+							-%>
+						<option value="<%= item['asin'] %>"><%= item['simpleProductName'].chomp %></option>
+							<%-
+							end
+						-%>
 					</select>
 				</td>
 				<td class="expand">
@@ -67,7 +74,14 @@
 				<td></td>
 				<td>
 					<select class="item amountLess">
-						<option><%= ingr.item %></option>
+						<option value="<%= ingr.item %>"><%= ingr.item %></option>
+						<%-
+							for item in @results[ingr.item]['response']['docs']
+							-%>
+							<option value="<%= item['asin'] %>"><%= item['simpleProductName'].chomp %></option>
+							<%-
+							end
+						-%>
 					</select>
 				</td>
 				<td class="expand">

@@ -9,7 +9,7 @@ public class ProductInfoExtractorClient {
 	public static void main(String[] args) throws IOException, SolrServerException {
 		
 		ProductInfoExtractor extractor = new ProductInfoExtractor(args[0], args[1]);
-		extractor.indexSolrDocs();
+		extractor.indexSolrDocs(); 
 		
 	}
 	

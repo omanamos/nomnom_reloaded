@@ -22,10 +22,12 @@ $(document).ready(function(){
 		'type'				: 'iframe'
 	});
 	
+	/*
 	$("input#query").autocomplete({
 		source: getRecipeNames,
 		delay: 0
 	});
+	*/
 });
 
 function getRecipeNames(request, callback) {

@@ -16,17 +16,20 @@ $(document).ready(function(){
 function queryAsinSolr(element) {
 	
 	function populateSelect(elem, xml) {
+		/*
 		var sel = elem.parent();
 		$(xml).find("doc").each(function(idx, item) {
 			var simpleName = item.find("str[name=simpleProductName]").text();
 			var asin = item.find("str[name=asin]").text();
 			sel.append($.create("option").text(simpleName).attr("value", asin));
 		})
+		*/
+		alert(xml);
 	}
 	
 	$.ajax({
 		type: "get",
-		url: 	"http://ec2-50-16-26-144.compute-1.amazonaws.com:8984/solr/select/",
+		url: 	"http://0.0.0.0:8983/solr/select/",
 		data: {
 			q: element.text().trim(),
 			version: 2.2,
