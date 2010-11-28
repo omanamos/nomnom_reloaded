@@ -156,7 +156,9 @@
    <field name="additionalProductInfo" type="text" indexed="true" stored="true" required="false" multiValued="true" />
    <field name="priceInCents" type="string" indexed="false" stored="true" required="true" />
 
-   <field name="catchAllField" type="text" indexed="true" stored="false" multiValued="true" />
+   <field name="similarItems" type="text" indexed="true" stored="true" required="true" multiValued="true" />
+
+   <field name="searchField" type="text" indexed="true" stored="false" multiValued="true" />
 
    <!-- Uncommenting the following will create a "timestamp" field using
         a default value of "NOW" to indicate when each document was indexed.
@@ -188,7 +190,7 @@
  <uniqueKey>asin</uniqueKey>
 
  <!-- field for the QueryParser to use when an explicit fieldname is absent -->
- <defaultSearchField>simpleProductName</defaultSearchField>
+ <defaultSearchField>searchField</defaultSearchField>
 
  <!-- SolrQueryParser configuration: defaultOperator="AND|OR" -->
  <solrQueryParser defaultOperator="OR"/>
@@ -197,9 +199,9 @@
         is added to the index.  It's used either to index the same field differently,
         or to add multiple fields to the same field for easier/faster searching.  -->
 
-   <copyField source="asin" dest="catchAllField"/>
-   <copyField source="simpleProductName" dest="catchAllField"/>
-   <copyField source="additionalProductInfo" dest="catchAllField"/>
+   <copyField source="asin" dest="searchField"/>
+   <copyField source="simpleProductName" dest="searchField"/>
+   <copyField source="similarItems" dest="searchField"/>
 	
    <!-- Above, multiple source fields are copied to the [text] field. 
 	  Another way to map multiple source fields to the same 
