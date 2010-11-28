@@ -78,6 +78,8 @@ GEM
       thor (~> 0.14.0)
     rake (0.8.7)
     redhillonrails_core (1.0.5)
+    rsolr (0.12.1)
+      builder (>= 2.1.2)
     ruby-units (1.1.5)
     rubyzip (0.9.4)
     spruz (0.1.5)
@@ -98,6 +100,7 @@ DEPENDENCIES
   mysql2
   passenger
   rails (= 3.0.1)
+  rsolr
   ruby-units
   rubyzip
   xml-simple

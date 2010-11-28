@@ -7,7 +7,7 @@ public class CrawledDataExpanderClient {
 	//public static final String SOLR_URL = "http://ec2-50-16-26-144.compute-1.amazonaws.com:8984/solr/";
 
 	public static void main(String[] args) throws IOException,
-			SolrServerException {
+			SolrServerException { 
 
 		if (args.length != 2) {
 			System.err.print("Usage: CrawledDataExpanderClient ");

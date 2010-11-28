@@ -4,7 +4,7 @@ import org.apache.commons.lang.StringEscapeUtils;
 
 public class Ingredient {
 	
-	private static final String UNIT_NOSPACE = "(pound|peice|jar|sheets|can|cup|ounce|quart|pint|quart|gallon|gram|teaspoon|tablespoon|liter|milliliter|kilogram|scoop|packet|" +
+	private static final String UNIT_NOSPACE = "(\\d+\\s*-\\s*)*(pound|peice|jar|sheets|can|cup|ounce|quart|pint|quart|gallon|gram|teaspoon|tablespoon|liter|milliliter|kilogram|scoop|packet|" +
 											"kg|tbl|teasp|tspn|tb|c|cm|lb|cp|oz|qt|gal|gm|tsp|tbsp|ts|tbs|lt|g|lit|ml|pkt|x)(\\.|s|s\\.|)*";
 	private static final String UNIT = "UNIT_NOSPACE\\s+".replace("UNIT_NOSPACE", UNIT_NOSPACE);
 	private static final String GUESS = "(about|almost|dash|splash|tad|drop|pinch|shot|bottle|clove|tin|slice|bit|bunch)(s|es|)*";
@@ -28,6 +28,7 @@ public class Ingredient {
 										"NUM\\s*SIZE|" +
 										"GUESS\\s*NUM\\s*UNIT|" +
 										"GUESS\\s*NUM|" +
+										"GUESS\\s*KIND|" +
 										"SIZE\\s*UNIT|" +
 										"SIZE|" +
 										"KIND|" +

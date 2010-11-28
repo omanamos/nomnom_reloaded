@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<item value="/Users/royman/Downloads/apache-solr-1.4.1/lib" key="org.eclipse.jdt.ui.lastextjar"/>
+	<item value="/Users/royman/Code/cse454/nomnom_reloaded/nomnom/lib/amazon_fresh_backend/AmazonFreshCrawler/src" key="org.eclipse.jdt.ui.last.external.project"/>
 	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
 		<item value="true" key="group_libraries"/>
 		<item value="false" key="linkWithEditor"/>
@@ -10,5 +12,8 @@
 	<section name="completion_proposal_size">
 	</section>
 	<section name="JavaElementSearchActions">
+	</section>
+	<section name="BuildPathsPropertyPage">
+		<item value="2" key="pageIndex"/>
 	</section>
 </section>
