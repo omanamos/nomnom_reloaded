@@ -5,8 +5,8 @@ $(document).ready(function(){
 	$('input.viewtoggle').click(viewRecipeBody);
 	
 	$('a.get_ingredients').fancybox({
-		'width'				: '50%',
-		'height'			: '90%',
+		'width'				: '80%',
+		'height'			: '100%',
 		'autoScale'			: true,
 		'transitionIn'		: 'elastic',
 		'transitionOut'		: 'elastic',

@@ -43,13 +43,13 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ParseRecipes/src/Recipe.java"/>
 <editorState selectionLength="0" selectionOffset="151"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ParseMain.java" partName="ParseMain.java" path="/Users/royman/Code/cse454/nomnom_reloaded/nomnom/lib/xml/ParseRecipes/src/ParseMain.java" title="ParseMain.java" tooltip="ParseRecipes/src/ParseMain.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ParseMain.java" partName="ParseMain.java" path="/Users/royman/Code/cse454/nomnom_reloaded/nomnom/lib/xml/ParseRecipes/src/ParseMain.java" title="ParseMain.java" tooltip="ParseRecipes/src/ParseMain.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ParseRecipes/src/ParseMain.java"/>
 <editorState selectionLength="0" selectionOffset="0"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Ingredient.java" partName="Ingredient.java" path="/Users/royman/Code/cse454/nomnom_reloaded/nomnom/lib/xml/ParseRecipes/src/Ingredient.java" title="Ingredient.java" tooltip="ParseRecipes/src/Ingredient.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ParseRecipes/src/Ingredient.java"/>
-<editorState selectionLength="0" selectionOffset="1659"/>
+<editorState selectionLength="0" selectionOffset="186"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RecipeParseHandler.java" partName="RecipeParseHandler.java" path="/Users/royman/Code/cse454/nomnom_reloaded/nomnom/lib/xml/ParseRecipes/src/RecipeParseHandler.java" title="RecipeParseHandler.java" tooltip="ParseRecipes/src/RecipeParseHandler.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ParseRecipes/src/RecipeParseHandler.java"/>
@@ -63,7 +63,7 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/AmazonFreshCrawler/ProductInfoExtractorClient.java"/>
 <editorState selectionLength="0" selectionOffset="86"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ProductInfoExtractor.java" partName="ProductInfoExtractor.java" path="/Users/royman/Code/cse454/nomnom_reloaded/nomnom/lib/amazon_fresh_backend/AmazonFreshCrawler/src/ProductInfoExtractor.java" title="ProductInfoExtractor.java" tooltip="AmazonFreshCrawler/ProductInfoExtractor.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ProductInfoExtractor.java" partName="ProductInfoExtractor.java" path="/Users/royman/Code/cse454/nomnom_reloaded/nomnom/lib/amazon_fresh_backend/AmazonFreshCrawler/src/ProductInfoExtractor.java" title="ProductInfoExtractor.java" tooltip="AmazonFreshCrawler/ProductInfoExtractor.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/AmazonFreshCrawler/ProductInfoExtractor.java"/>
 <editorState selectionLength="0" selectionOffset="796"/>
 </editor>
@@ -256,22 +256,10 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ParseRecipes/src/RecipeParseHandler.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/AmazonFreshCrawler/ProductInfoExtractor.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/AmazonFreshCrawler/ProductIndexer.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ParseRecipes/src/Recipe.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ParseRecipes/src/Ingredient.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ParseRecipes/src/ParseMain.java"/>
 </editors>
-<item historyLabel="Ingredient.java" index="0">
-<position info="not_deleted" x="1381" y="0"/>
-</item>
-<item historyLabel="Ingredient.java" index="0">
-<position info="not_deleted" x="2868" y="0"/>
-</item>
-<item historyLabel="Ingredient.java" index="0">
-<position info="not_deleted" x="2314" y="0"/>
-</item>
-<item historyLabel="ParseMain.java" index="1">
-<position/>
-</item>
-<item historyLabel="Recipe.java" index="2">
-<position/>
-</item>
 <item historyLabel="ParseMain.java" index="1">
 <position/>
 </item>
@@ -404,8 +392,23 @@
 <item historyLabel="ProductIndexer.java" index="8">
 <position/>
 </item>
-<item active="true" historyLabel="ProductInfoExtractor.java" index="7">
+<item historyLabel="ProductInfoExtractor.java" index="7">
 <position info="not_deleted" x="4235" y="0"/>
+</item>
+<item historyLabel="Recipe.java" index="9">
+<position info="not_deleted" x="151" y="0"/>
+</item>
+<item historyLabel="Ingredient.java" index="10">
+<position info="not_deleted" x="1675" y="0"/>
+</item>
+<item historyLabel="Ingredient.java" index="10">
+<position info="not_deleted" x="2017" y="0"/>
+</item>
+<item historyLabel="Ingredient.java" index="10">
+<position/>
+</item>
+<item active="true" historyLabel="ParseMain.java" index="11">
+<position/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
