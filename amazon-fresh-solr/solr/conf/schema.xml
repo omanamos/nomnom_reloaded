@@ -156,7 +156,7 @@
    <field name="additionalProductInfo" type="text" indexed="true" stored="true" required="false" multiValued="true" />
    <field name="priceInCents" type="string" indexed="false" stored="true" required="true" />
 
-   <field name="similarItems" type="text" indexed="true" stored="true" required="true" multiValued="true" />
+   <field name="similarItems" type="text" indexed="true" stored="true" required="false" multiValued="true" />
 
    <field name="searchField" type="text" indexed="true" stored="false" multiValued="true" />
 
