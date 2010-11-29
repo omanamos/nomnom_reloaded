@@ -11,6 +11,12 @@ $(document).ready(function(){
 	if($('#flash').html() != ''){
 		$('#flash').show();
 	}
+	$("body").randombg({
+            //directory: "../../images/backgrounds", //directory to image folder
+            directory: "/Users/Noe/UW/CSE/454/nomnom_reloaded/nomnom/public/images/Backgrounds"
+            howmany: 2 //how many images are in this folder     
+    });
+
 });
 
 function showLogin(){

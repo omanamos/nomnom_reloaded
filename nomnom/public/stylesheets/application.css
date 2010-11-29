@@ -16,8 +16,8 @@ a:visited, img {
 	border: none;	
 }
 body {
-    background-image: url('../images/croissants.jpg');
-    background-color: #F29857;
+    background-image: none; //url('../images/croissants.jpg');
+    //background-color: #F29857;
 	background-repeat: repeat;
 	background-position:center top;
 	background-attachment:fixed;
