@@ -10,6 +10,7 @@ Nomnom::Application.routes.draw do
   match 'search' => 'search#index'
   match 'help' => 'help#index'
   match 'about' => 'about#index'
+  match 'conflict_wrapper' => 'conflict_wrapper#index'
   match 'conflict' => 'conflict#index'
   match 'submit' => 'submit#index'
   

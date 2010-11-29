@@ -1,0 +1,14 @@
+import java.io.File;
+
+
+public class ProductIndexerClient {
+
+	
+	public static void main(String[] args) {
+		if (args.length != 2) {
+			System.exit(1);
+		}
+		
+		File serializedDocsDirectory = new File(args[0]);
+	}
+}
