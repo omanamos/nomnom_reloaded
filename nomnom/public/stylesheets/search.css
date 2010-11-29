@@ -30,26 +30,25 @@
 }
 
 a:hover{
-	text-decoration:underline;
+	text-decoration: underline;
 }
 
 .viewtoggle{
 	border: none;
     background-color: white;
-    //color: black;
     vertical-align: middle;
     margin-bottom: 5px;
 }
 
 .viewtoggle:hover {
-	text-decoration:underline;
+	text-decoration: underline;
 }
 
 .extrainfo{
-	clear:left;
+	clear: left;
 	float: left;
 	text-align: left;
-	padding-left:4px;
+	padding-left: 4px;
 }
 
 .recipe_content {

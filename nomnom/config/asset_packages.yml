@@ -8,6 +8,7 @@ javascripts:
   - jquery/jquery.fancybox
   - jquery/jquery.ui
   - jquery/jquery.scrollTo
+  - jquery/jquery.randombg
   - application
 - home:
   - home

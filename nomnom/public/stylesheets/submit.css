@@ -1,0 +1,16 @@
+.submit_info {
+	padding-top: 10px;
+	font-size: 16px;
+}
+
+.ingredient_text {
+	width: 100px;
+}
+
+.ingredient_button {
+	float: left;
+    font-size: 16px;
+    height: 25px;
+    margin: 4px;
+    margin-bottom: 8px;
+}

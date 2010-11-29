@@ -3,6 +3,10 @@ var default_values = {
 	password: 'Password'
 };
 $(document).ready(function(){
+	$("body").randombg({
+            directory: "../../images/backgrounds/", //directory to image folder
+            howmany: 2 //how many images are in this folder     
+    });
 	$('#login_form .format').formatter(default_values);
 	$('#show_login').click(showLogin);
 	$('#login_form').submit(login);
@@ -11,6 +15,7 @@ $(document).ready(function(){
 	if($('#flash').html() != ''){
 		$('#flash').show();
 	}
+
 });
 
 function showLogin(){
