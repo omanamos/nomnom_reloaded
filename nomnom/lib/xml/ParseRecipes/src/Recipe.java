@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Recipe {
 	
-	private static final String FILE_PATH = "/Users/royman/Code/cse454/nomnom_reloaded/nomnom/lib/xml/ParseRecipes/recipes_xml/";
+	private static final String FILE_PATH = "/Users/Noe/UW/CSE/454/nomnom_reloaded/nomnom/lib/xml/ParseRecipes/recipes_xml/";
 	
 	private String title;
 	private String description;

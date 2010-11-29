@@ -11,6 +11,7 @@ Nomnom::Application.routes.draw do
   match 'help' => 'help#index'
   match 'about' => 'about#index'
   match 'conflict' => 'conflict#index'
+  match 'submit' => 'submit#index'
   
   match 'login' => 'user_sessions#create'
   match 'logout' => 'user_sessions#destroy'
