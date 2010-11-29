@@ -3,6 +3,10 @@ var default_values = {
 	password: 'Password'
 };
 $(document).ready(function(){
+	$("body").randombg({
+            directory: "../../images/backgrounds/", //directory to image folder
+            howmany: 2 //how many images are in this folder     
+    });
 	$('#login_form .format').formatter(default_values);
 	$('#show_login').click(showLogin);
 	$('#login_form').submit(login);
@@ -11,11 +15,6 @@ $(document).ready(function(){
 	if($('#flash').html() != ''){
 		$('#flash').show();
 	}
-	$("body").randombg({
-            //directory: "../../images/backgrounds", //directory to image folder
-            directory: "/Users/Noe/UW/CSE/454/nomnom_reloaded/nomnom/public/images/Backgrounds"
-            howmany: 2 //how many images are in this folder     
-    });
 
 });
 

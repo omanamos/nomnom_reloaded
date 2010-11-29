@@ -1,0 +1,22 @@
+<%- content_for(:context) do -%>submit<%- end -%>
+<div class="submit_info">
+	Here you can submit a recipe by filling out the description, ingredients and directions.
+</div>
+<form action="<%=url_for :controller => 'submit', :action => 'index'%>" method="get">
+	<table class="submit_ingredients">
+		<%-
+		i = 0;
+		while i < 5 -%>
+			<div id="ingredient_<%= i %>">
+				<input id="amount" class="ingredient_text" type="text" maxlength="20" value="Amount" />
+				<input id="ingredient" class="ingredient_text" type="text" maxlength="20" value="Ingredient" />
+			</div>
+		
+		<%-
+			i += 1;
+		end -%>
+		<input class="button ingredient_button" type="submit" value="Add Ingredient"/>
+		</br>
+		<input class="button" type="submit" value="Submit Recipe"/>
+	</table>
+</form>

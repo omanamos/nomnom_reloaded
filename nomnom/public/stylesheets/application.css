@@ -15,9 +15,8 @@ a:hover{
 a:visited, img {
 	border: none;	
 }
+
 body {
-    background-image: none; //url('../images/croissants.jpg');
-    //background-color: #F29857;
 	background-repeat: repeat;
 	background-position:center top;
 	background-attachment:fixed;
@@ -30,7 +29,7 @@ body {
     width: 800px;
     margin: 0 auto;
     padding: 25px 30px;
-    border: 4px solid #3e1f0d;
+    border: 4px solid #924615;//#3e1f0d;
     background-color: #ffffff;
 }
 
