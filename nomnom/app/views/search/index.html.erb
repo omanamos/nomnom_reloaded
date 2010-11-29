@@ -22,7 +22,7 @@
 	        <div class="recipetitle">
 	            <a class="original_recipe" href="<%= recipe_url %>"><%= recipe_title %></a>
 	        </div>
-	        <a class="ingredbutton get_ingredients" href="<%=url_for :controller => 'conflict_wrapper', :action => 'index'%>?recipeID=<%= recipe.id %>">Get Ingredients</a>
+	        <a class="ingredbutton get_ingredients" href="<%=url_for :controller => 'conflict', :action => 'index'%>?recipeID=<%= recipe.id %>">Get Ingredients</a>
 	        <!--<input id="<%= button_id %>" type="submit" class="viewtoggle button ingredbutton" value="View Recipe"/>-->
 	        <div class="extrainfo">
 	        	<!--<img src="<%= recipe_picture %>" alt="some_text"/>-->
