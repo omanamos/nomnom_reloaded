@@ -1,17 +1,14 @@
 <%- content_for(:context) do -%>conflict<%- end -%>
-
 <div id="<%= @recipe.id %>" class="ingredients">
 	<h1><%= @recipe.title %></h1>
-	<button id="next">Next</button>
-	<button id="last">Last</button>
-		
+	
 	<%- for ingr in @recipe.ingredients -%>
 	<div id="<%= ingr.item %>" class="ingredient hide">
-		<h2>Suggested products for <strong><%= ingr.item %></strong></h2>
+		<h2>Suggested products for <strong><%= ingr.item %></strong>:</h2>
 	<%- if @results[ingr.item]['response']['docs'].length == 0 -%>
 		<p class="itemFail">We're sorry, we have no suggestions for <%= ingr.item %></p>
 	<%- else -%>
-		<ol class="suggestions">
+		<select class="suggestions">
 			<%-
 			for item in @results[ingr.item]['response']['docs'] 
 				price = item['priceInCents'].to_i / 100.0
@@ -20,16 +17,18 @@
 				if stuff != nil
 					quantity = stuff[-1]
 				end
+				val = CGI.unescapeHTML(item['simpleProductName']) + (!quantity.empty? ? (" (" + quantity + ")") : "") + " for " + price.to_s
 			-%>
-			<li>
-				<span class="asinLink" id="http://fresh.amazon.com/product?asin=<%= item['asin'] %>">
-					<%= CGI.unescapeHTML(item['simpleProductName']) + (!quantity.empty? ? (" (" + quantity + ")") : "") + " for " + price.to_s %>
-				</span>
-			</li>
+			<option class="asinLink" id="<%= item['asin'] %>" value="<%= val %>">
+					<%= val %>
+			</option>
 			<%- end -%>
-		</ol>
+		</select>
 		<%- end -%>
 	</div>
 	<%- end -%>
 	
 </div>
+<button id="prev" class="nav">Prev</button>
+<iframe id="amazonFreshFrame" src="http://fresh.amazon.com/"></iframe>
+<button id="next" class="nav">Next</button>
