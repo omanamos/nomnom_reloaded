@@ -1,52 +1,43 @@
+//Using window.onload fixes a javascript clash with existing 
+//libraries that prevented this file from being executed properly
+/*window.onload = function() {
+	$(".ingredient:first").removeClass("hide").addClass("show");
+	$("#next").click(function() { 
+		shift_ingredient(1);	
+	});
+	$("#last").click(function() { 
+		shift_ingredient(-1);	
+	});
+}*/
+
+function shift_ingredient(n) {
+	var ingredients = $(".ingredient");
+	var current_ingredient = $(".ingredient.show")[0];
+	var idx = ingredients.toArray().indexOf(current_ingredient);
+	var newIndex = (idx + n) % ingredients.length;
+	if (newIndex < 0) newIndex += ingredients.length;
+
+	$(current_ingredient).removeClass("show").addClass("hide");
+	$(ingredients[newIndex]).removeClass("hide").addClass("show");
+}
+
 $(document).ready(function(){
-	//var amountWidth = ensureWidths(".amount", 0);
-    //ensureWidths(".item", amountWidth, 10);
-    $('#addToCart').click(addToCart);
-    $('tr.ingredient').click(toggleChecked);
-    $('.include_item input').click(function(e) {
-    	e.stopPropagation();	
-    });
-    $('tr.ingredient').hover(mouseOver, mouseOut);
+	var body_width = $('body').width();
+	var body_height = $('body').height();
+	$('#amazonFreshFrame').css({
+		'height': body_height - 82
+	});
+	$(".ingredient:first").removeClass("hide").addClass("show");
+	$(".suggestions").change(changeASIN);
+	
+	$("#next").click(function() { 
+		shift_ingredient(1);	
+	});
+	$("#prev").click(function() { 
+		shift_ingredient(-1);	
+	});
 });
 
-function mouseOver(event){
-	$(this).css({
-		backgroundColor: '#CCCCCC',
-		cursor: 'pointer'
-	});
-}
-
-function mouseOut(event){
-	$(this).css('background', 'none');
-}
-
-function toggleChecked(event){
-	$('td.include_item input[type="checkbox"]', this).toggleChecked();
-}
-
-function addToCart(event){
-	$([{
-		asin: 'B000NSH21E', 
-		quantity: 1
-	}, {
-		asin: 'B0017U8GT4', 
-		quantity: 1
-	}]).addToCart();
-}
-
-//Legacy function, keep it for kicks
-function ensureWidths(class, leftMargin, offset) {
-	var maxWidth = 0;
-	$(class).each(function(idx, element) {
-		maxWidth = Math.max(parseInt($(element).css("width")), maxWidth);	
-	});
-	$(class).each(function(idx, element) {
-		$(element).css("width", Math.min(maxWidth, 200) + "px");
-		if ($(element).hasClass("amountLess")) {
-			$(element).css("marginLeft", leftMargin + offset + 117 + "px");	
-		} else {
-			$(element).css("marginLeft", offset + "px");	
-		}
-	});
-	return maxWidth;
+function changeASIN(event){
+	$('#amazonFreshFrame').attr('src', "http://fresh.amazon.com/product?asin=" + $(":selected", $(this)).attr('id'));
 }

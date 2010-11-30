@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;ProductInfoExtractor.indexSolrDocs()&apos; to &apos;getSolrDocs&apos;&#x0A;- Original project: &apos;AmazonFreshBackend&apos;&#x0A;- Original element: &apos;ProductInfoExtractor.indexSolrDocs()&apos;&#x0A;- Renamed element: &apos;ProductInfoExtractor.getSolrDocs()&apos;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;indexSolrDocs&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;{ProductInfoExtractor.java[ProductInfoExtractor~indexSolrDocs" name="getSolrDocs" references="true" stamp="1290931470760" version="1.0"/>
+</session>

@@ -49,3 +49,164 @@ java.lang.RuntimeException: No python nature for project: ParseRecipes
 	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:880)
 	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1083)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SESSION 2010-11-22 01:35:33.381 -----------------------------------------------
+eclipse.buildId=M20080911-1700
+java.version=1.6.0_22
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=carbon, NL=en_US
+Framework arguments:  -keyring /Users/royman/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws carbon -arch x86 -data /Users/royman/Code/cse454/nomnom_reloaded/nomnom/lib/xml -keyring /Users/royman/.eclipse_keyring -consoleLog -showlocation
+
+!ENTRY org.eclipse.core.resources 2 10035 2010-11-22 01:35:34.606
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+!SESSION 2010-11-22 03:02:46.342 -----------------------------------------------
+eclipse.buildId=M20080911-1700
+java.version=1.6.0_22
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=carbon, NL=en_US
+Framework arguments:  -keyring /Users/royman/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws carbon -arch x86 -keyring /Users/royman/.eclipse_keyring -consoleLog -showlocation
+
+!ENTRY org.eclipse.ui 4 0 2010-11-22 03:02:51.230
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.IllegalArgumentException: Argument cannot be null
+	at org.eclipse.swt.SWT.error(SWT.java:3761)
+	at org.eclipse.swt.SWT.error(SWT.java:3695)
+	at org.eclipse.swt.SWT.error(SWT.java:3666)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1126)
+	at org.eclipse.swt.widgets.Display.removeListener(Display.java:3304)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.preShutdown(IDEWorkbenchAdvisor.java:325)
+	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:841)
+	at org.eclipse.ui.internal.Workbench.access$15(Workbench.java:838)
+	at org.eclipse.ui.internal.Workbench$23.run(Workbench.java:1082)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1080)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1052)
+	at org.eclipse.ui.internal.Workbench$56.handleEvent(Workbench.java:2253)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:3590)
+	at org.eclipse.swt.widgets.Display.coreEventProc(Display.java:869)
+	at org.eclipse.swt.internal.carbon.OS.SendEventToEventTarget(Native Method)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3051)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2293)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2198)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:493)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:288)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:488)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:113)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:193)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:386)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
+!SESSION 2010-11-22 03:03:03.078 -----------------------------------------------
+eclipse.buildId=M20080911-1700
+java.version=1.6.0_22
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=carbon, NL=en_US
+Framework arguments:  -keyring /Users/royman/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws carbon -arch x86 -keyring /Users/royman/.eclipse_keyring -consoleLog -showlocation
+
+!ENTRY org.python.pydev 4 4 2010-11-22 03:08:06.157
+!MESSAGE No python nature for project: ParseRecipes
+!STACK 1
+org.eclipse.core.runtime.CoreException: No python nature for project: ParseRecipes
+	at org.python.pydev.plugin.PydevPlugin.log(PydevPlugin.java:328)
+	at org.python.pydev.debug.ui.launching.PythonRunnerConfig.<init>(PythonRunnerConfig.java:356)
+	at org.python.pydev.debug.ui.launching.PythonRunnerConfig.<init>(PythonRunnerConfig.java:336)
+	at org.python.pydev.debug.ui.launching.AbstractLaunchConfigurationDelegate.launch(AbstractLaunchConfigurationDelegate.java:95)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:764)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:614)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:880)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1083)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.RuntimeException: No python nature for project: ParseRecipes
+	at org.python.pydev.plugin.PydevPlugin.log(PydevPlugin.java:327)
+	... 8 more
+!SUBENTRY 1 org.python.pydev 4 4 2010-11-22 03:08:06.157
+!MESSAGE No python nature for project: ParseRecipes
+!STACK 0
+java.lang.RuntimeException: No python nature for project: ParseRecipes
+	at org.python.pydev.plugin.PydevPlugin.log(PydevPlugin.java:327)
+	at org.python.pydev.debug.ui.launching.PythonRunnerConfig.<init>(PythonRunnerConfig.java:356)
+	at org.python.pydev.debug.ui.launching.PythonRunnerConfig.<init>(PythonRunnerConfig.java:336)
+	at org.python.pydev.debug.ui.launching.AbstractLaunchConfigurationDelegate.launch(AbstractLaunchConfigurationDelegate.java:95)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:764)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:614)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:880)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1083)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.python.pydev 4 4 2010-11-22 03:08:06.164
+!MESSAGE No python nature for project: ParseRecipes
+!STACK 0
+java.lang.RuntimeException: No python nature for project: ParseRecipes
+	at org.python.pydev.plugin.PydevPlugin.log(PydevPlugin.java:327)
+	at org.python.pydev.debug.ui.launching.PythonRunnerConfig.<init>(PythonRunnerConfig.java:356)
+	at org.python.pydev.debug.ui.launching.PythonRunnerConfig.<init>(PythonRunnerConfig.java:336)
+	at org.python.pydev.debug.ui.launching.AbstractLaunchConfigurationDelegate.launch(AbstractLaunchConfigurationDelegate.java:95)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:764)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:614)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:880)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1083)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SESSION 2010-11-27 13:14:00.499 -----------------------------------------------
+eclipse.buildId=M20080911-1700
+java.version=1.6.0_22
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=carbon, NL=en_US
+Framework arguments:  -keyring /Users/royman/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws carbon -arch x86 -keyring /Users/royman/.eclipse_keyring -consoleLog -showlocation
+
+!ENTRY org.python.pydev 4 4 2010-11-27 13:24:09.886
+!MESSAGE No python nature for project: ParseRecipes
+!STACK 1
+org.eclipse.core.runtime.CoreException: No python nature for project: ParseRecipes
+	at org.python.pydev.plugin.PydevPlugin.log(PydevPlugin.java:328)
+	at org.python.pydev.debug.ui.launching.PythonRunnerConfig.<init>(PythonRunnerConfig.java:356)
+	at org.python.pydev.debug.ui.launching.PythonRunnerConfig.<init>(PythonRunnerConfig.java:336)
+	at org.python.pydev.debug.ui.launching.AbstractLaunchConfigurationDelegate.launch(AbstractLaunchConfigurationDelegate.java:95)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:764)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:614)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:880)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1083)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.lang.RuntimeException: No python nature for project: ParseRecipes
+	at org.python.pydev.plugin.PydevPlugin.log(PydevPlugin.java:327)
+	... 8 more
+!SUBENTRY 1 org.python.pydev 4 4 2010-11-27 13:24:09.887
+!MESSAGE No python nature for project: ParseRecipes
+!STACK 0
+java.lang.RuntimeException: No python nature for project: ParseRecipes
+	at org.python.pydev.plugin.PydevPlugin.log(PydevPlugin.java:327)
+	at org.python.pydev.debug.ui.launching.PythonRunnerConfig.<init>(PythonRunnerConfig.java:356)
+	at org.python.pydev.debug.ui.launching.PythonRunnerConfig.<init>(PythonRunnerConfig.java:336)
+	at org.python.pydev.debug.ui.launching.AbstractLaunchConfigurationDelegate.launch(AbstractLaunchConfigurationDelegate.java:95)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:764)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:614)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:880)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1083)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.python.pydev 4 4 2010-11-27 13:24:09.967
+!MESSAGE No python nature for project: ParseRecipes
+!STACK 0
+java.lang.RuntimeException: No python nature for project: ParseRecipes
+	at org.python.pydev.plugin.PydevPlugin.log(PydevPlugin.java:327)
+	at org.python.pydev.debug.ui.launching.PythonRunnerConfig.<init>(PythonRunnerConfig.java:356)
+	at org.python.pydev.debug.ui.launching.PythonRunnerConfig.<init>(PythonRunnerConfig.java:336)
+	at org.python.pydev.debug.ui.launching.AbstractLaunchConfigurationDelegate.launch(AbstractLaunchConfigurationDelegate.java:95)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:764)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:614)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:880)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1083)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)

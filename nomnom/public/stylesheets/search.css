@@ -23,9 +23,33 @@
 .recipetitle {
 	float: left;
     text-align: left;
-    font-size: 20px;
+    font-size: 18px;
+    margin: 4px;
     margin-bottom: 8px;
     max-width: 440px;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+.viewtoggle{
+	border: none;
+    background-color: white;
+    vertical-align: middle;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.viewtoggle:hover {
+	text-decoration: underline;
+}
+
+.extrainfo{
+	clear: left;
+	float: left;
+	text-align: left;
+	padding-left: 4px;
 }
 
 .recipe_content {
@@ -37,7 +61,7 @@
 .recipe_directions {
 	margin-left: 20px;
     text-align: left;
-    font-size: 16px;
+    font-size: 13px;
 }
 
 .floater {
@@ -68,10 +92,6 @@ li {
 
 hr {
 	clear: both;	
-}
-
-a:visited, img {
-	border: none;	
 }
 
 #footer {

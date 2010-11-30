@@ -6,4 +6,4 @@ Steps to load site.
 
 2) Start solr
    (from solr)
-   $ sudo ./start
+   $ rake solr:start

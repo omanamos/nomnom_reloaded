@@ -1,19 +1,23 @@
 ---
 javascripts:
 - base:
-  - jquery
-  - jquery.utils
+  - jquery/jquery
+  - jquery/jquery.tmpl
+  - jquery/jquery.utils
+  - jquery/jquery.formatter
+  - jquery/jquery.fancybox
+  - jquery/jquery.ui
+  - jquery/jquery.scrollTo
+  - jquery/jquery.randombg
   - application
-  - jquery.fancybox
-  - jquery.ui
 - home:
   - home
 - search:
   - search
-  - jquery 
 - conflict:
   - conflict
-  - jquery.amzcart
+- conflict_wrapper:
+  - conflict_wrapper
 
 stylesheets:
 - base:
@@ -26,3 +30,5 @@ stylesheets:
   - search
 - conflict:
   - conflict
+- user:
+  - scaffold

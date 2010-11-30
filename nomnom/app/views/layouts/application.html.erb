@@ -9,20 +9,23 @@
 		<%= javascript_include_merged( :base, context ).html_safe %>
 		<%= csrf_meta_tag %>
 	</head>
-	<body>
+	<body id="body">
 		<div id="container">
 			<div id="header">
+				<%= render_taskbar %>
 				<a href="<%=url_for :controller => 'home', :action => 'index'%>" class="image-link">
     				<img src="<%= image_path 'projectnomnom_title_small.jpg' %>" alt="nomnom_title" title="Nom nom!" />
-				</a>  
+				</a>
 				<form action="<%=url_for :controller => 'search', :action => 'index'%>" method="get">
-	    			<input id="query" name="query" class="page_top_search" type="text" maxlength="40" value="<%=@query%>" />
+	    			<input id="query" name="query" class="search page_top_search" type="text" maxlength="40" value="<%=@query%>" />
 	    			<input class="button page_top_button" type="submit" value="Find Recipes!"/>
 				</form>
 			</div>
 			<%= yield %>
 			<p id="footer">
-				<a href="<%= url_for :controller => 'about', :action => 'index' %>">About</a> &bull; <a href="<%= url_for :controller => 'help', :action => 'index' %>">Help</a>
+				<!--<a href="<%= url_for :controller => 'submit', :action => 'index' %>">Submit Recipe</a> &bull;-->
+				<a href="<%= url_for :controller => 'about', :action => 'index' %>">About</a> &bull;
+				<a href="<%= url_for :controller => 'help', :action => 'index' %>">Help</a>
 			</p>
 		</div>
 	</body>

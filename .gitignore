@@ -1,3 +1,4 @@
+.metadata
 nomnom/config/database.yml
 nomnom/lib/xml/ParseRecipes/recipes_xml/*
 nomnom/public/stylesheets/search_packaged.css
