@@ -26,7 +26,7 @@
 				var directory = config.directory, howmany = config.howmany;
 
 				var which = Math.floor(Math.random()*howmany)+1;
-				$(this).css({"background" : "url(" + directory + which + ".jpg)"});
+				$(this).css({"background-image" : "url(" + directory + which + ".jpg)"});
 			  
             })
         }
