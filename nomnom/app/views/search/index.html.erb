@@ -2,9 +2,8 @@
 <%- num_recipes = @results.docs.length -%>
 
 <h4>Found <%= num_recipes %> Recipe<%=(num_recipes != 1) ? "s" : ""%>.</h4>
-
 <%- if @results.suggest? and @results.total == 0 and @results.suggest != @query -%>
-<p>Did you mean <a href="<%=url_for :controller => 'search', :action => 'index'%>?query=<%= @results.suggest %>"><%= @results.suggest %></a>?</p>
+	<p>Did you mean <a href="<%=url_for :controller => 'search', :action => 'index'%>?query=<%= @results.suggest %>"><%= @results.suggest %></a>?</p>
 <%- end -%>
 <div id="recipesbox">
     <%-
@@ -22,7 +21,7 @@
 	        <div class="recipetitle">
 	            <a class="original_recipe" href="<%= recipe_url %>"><%= recipe_title %></a>
 	        </div>
-	        <a class="ingredbutton get_ingredients" href="<%=url_for :controller => 'conflict', :action => 'index'%>?recipeID=<%= recipe.id %>">Get Ingredients</a>
+	        	<a class="ingredbutton get_ingredients" href="<%=url_for :controller => 'conflict', :action => 'index'%>?recipeID=<%= recipe.id %>">Get Ingredients</a>
 	        <!--<input id="<%= button_id %>" type="submit" class="viewtoggle button ingredbutton" value="View Recipe"/>-->
 	        <div class="extrainfo">
 	        	<!--<img src="<%= recipe_picture %>" alt="some_text"/>-->

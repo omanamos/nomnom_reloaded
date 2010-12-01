@@ -17,8 +17,6 @@ javascripts:
   - search
 - conflict:
   - conflict
-- conflict_wrapper:
-  - conflict_wrapper
 
 stylesheets:
 - base:
