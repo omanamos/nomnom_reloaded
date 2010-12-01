@@ -1,0 +1,23 @@
+<div id="<%= @ingr.id %>" class="ingredient hide">
+	<h2>Suggested products for <strong><%= @ingr.item %></strong>:</h2>
+<%- if @results['response']['docs'].length == 0 -%>
+	<p class="itemFail">We're sorry, we have no suggestions for <%= ingr.item %></p>
+<%- else -%>
+	<select id="<%= @ingr.id %>_suggestions" class="suggestions">
+		<%-
+		for item in @results['response']['docs'] 
+			price = item['priceInCents'].to_i / 100.0
+			stuff = item['additionalProductInfo']
+			quantity = ""
+			if stuff != nil
+				quantity = stuff[-1]
+			end
+			val = CGI.unescapeHTML(item['simpleProductName']) + (!quantity.empty? ? (" (" + quantity + ")") : "") + " for $" + price.to_s
+		-%>
+		<option class="asinLink" id="<%= item['asin'] %>" value="<%= val %>">
+				<%= val %>
+		</option>
+		<%- end -%>
+	</select>
+	<%- end -%>
+</div>

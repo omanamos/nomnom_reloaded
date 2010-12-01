@@ -1,34 +1,10 @@
 <%- content_for(:context) do -%>conflict<%- end -%>
 <div id="<%= @recipe.id %>" class="ingredients">
 	<h1><%= @recipe.title %></h1>
-	<p><%= @item %></p>
-	<!-- <%- for ingr in @recipe.ingredients -%> -->
-	<div id="<%= ingr.item %>" class="ingredient hide">
-		<h2>Suggested products for <strong><%= ingr.item %></strong>:</h2>
-	<%- if @results[ingr.item]['response']['docs'].length == 0 -%>
-		<p class="itemFail">We're sorry, we have no suggestions for <%= ingr.item %></p>
-	<%- else -%>
-		<select class="suggestions">
-			<%-
-			for item in @results[ingr.item]['response']['docs'] 
-				price = item['priceInCents'].to_i / 100.0
-				stuff = item['additionalProductInfo']
-				quantity = ""
-				if stuff != nil
-					quantity = stuff[-1]
-				end
-				val = CGI.unescapeHTML(item['simpleProductName']) + (!quantity.empty? ? (" (" + quantity + ")") : "") + " for " + price.to_s
-			-%>
-			<option class="asinLink" id="<%= item['asin'] %>" value="<%= val %>">
-					<%= val %>
-			</option>
-			<%- end -%>
-		</select>
-		<%- end -%>
-	</div>
-	<%- end -%>
-	
 </div>
 <button id="prev" class="nav">Prev</button>
 <iframe id="amazonFreshFrame" src="http://fresh.amazon.com/"></iframe>
 <button id="next" class="nav">Next</button>
+<script type="text/javascript">
+	var ingredients = <%= @recipe.ingredients.map { |ingr| ingr.id }.to_json.html_safe %>
+</script>

@@ -4,15 +4,25 @@ class ConflictController < ApplicationController
   
   def index
   	@current = 0
-  	solr = RSolr.connect :url=>'http://ec2-50-16-26-144.compute-1.amazonaws.com:8984/solr'
   	@query = params[:recipeID]
   	@recipe = Recipe.find(@query)
-  	@item = get_item_results(@recipe.ingredients[@current])
+  	
+  	#solr = RSolr.connect :url=>'http://ec2-50-16-26-144.compute-1.amazonaws.com:8984/solr'
+  	#@item = get_item_results(@recipe.ingredients[@current])
   	#for ingr in @recipe.ingredients
   	#	ingr.item.gsub!(/([\+\-\(\)\{\}\[\]\*])/) {|match| "\\" + match.to_s }
   	#	queryResults = solr.select(:q=> ingr.item, :wt=>'ruby', :start=> 0, :rows=> 10)
   	#	@results[ingr.item] = eval(queryResults)
   	#end
+  end
+  
+  def show
+  	ingr_id = params[:id]
+  	@ingr = Ingredient.find(ingr_id)
+  	
+  	solr = RSolr.connect :url=>'http://ec2-50-16-26-144.compute-1.amazonaws.com:8984/solr'
+  	@results = eval(solr.select(:q=> @ingr.item, :wt=>'ruby', :start=> 0, :rows=> 10))
+  	render :partial => 'ingredient'
   end
   
   private

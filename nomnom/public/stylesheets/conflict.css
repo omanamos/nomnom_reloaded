@@ -58,6 +58,7 @@ strong {
 
 	.suggestions {
 		float: right;
+		width: 50%;
 	}
 
 	.asinLink:hover {
