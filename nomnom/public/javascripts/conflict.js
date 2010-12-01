@@ -1,4 +1,4 @@
-var cur_ind = 0;
+var cur_ind = -1;
 
 $(document).ready(function(){
 	$('#amazonFreshFrame').css({
@@ -14,7 +14,7 @@ $(document).ready(function(){
 function shiftIngr(){
 	var shiftRight = this.id == "next"
 	
-	if(cur_ind == 0){
+	if(cur_ind <= 0){
 		$("#prev").attr("disabled", true);
 		$("#next").attr("disabled", false);
 	}else if((cur_ind + 1) == ingredients.length){
@@ -24,7 +24,6 @@ function shiftIngr(){
 		$("#prev").attr("disabled", false);
 		$("#next").attr("disabled", false);
 	}
-	
 	cur_ind += shiftRight ? 1 : -1;
 	
 	loadIngr(ingredients[cur_ind]);
