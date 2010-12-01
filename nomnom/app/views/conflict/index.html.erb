@@ -1,12 +1,24 @@
 <%- content_for(:context) do -%>conflict<%- end -%>
-<div id="header">
+<div id="ingr_header">
 	<div id="<%= @recipe.id %>" class="ingredients">
 		<h1><%= @recipe.title %></h1>
 	</div>
 	<button id="prev" class="nav">Prev</button>
 	<button id="next" class="nav">Next</button>
 </div>
-<iframe id="amazonFreshFrame" src="http://fresh.amazon.com/"></iframe>
+<div id="signin_header">
+	<h2>Please Sign In</h2>
+	<button id="signed_in">I'm signed in</button>
+</div>
+<iframe id="amazonFreshFrame" src="http://fresh.amazon.com/SignIn"></iframe>
+<div id="main">
+	<h1>Congratulations! You've finished adding the recipe to your cart.</h1>
+	<h2>Would you like to:</h2>
+	<button id="continue_shopping">Continue Shopping</button>
+	<h2>or</h2>
+	<button id="checkout">Checkout</button>
+</div>
 <script type="text/javascript">
-	var ingredients = <%= @recipe.ingredients.map { |ingr| ingr.id }.to_json.html_safe %>
+	var ingredients = <%= @recipe.ingredients.map { |ingr| ingr.id }.to_json.html_safe %>;
+	var sign_in = false;
 </script>
