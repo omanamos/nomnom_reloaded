@@ -9,6 +9,7 @@ javascripts:
   - jquery/jquery.ui
   - jquery/jquery.scrollTo
   - jquery/jquery.randombg
+  - jquery/jquery.autocomplete
   - application
 - home:
   - home
@@ -24,6 +25,7 @@ stylesheets:
   - application
   - jquery.fancybox
   - jquery.ui
+  - jquery.autocomplete
 - home:
   - home
 - search:

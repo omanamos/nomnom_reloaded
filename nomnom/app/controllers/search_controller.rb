@@ -5,4 +5,8 @@ class SearchController < ApplicationController
   	@query = params[:query]
   	@results = Recipe.search(@query)
   end
+  
+  def show
+  	render :text => ["one\n", "two\n", "three\n"]
+  end
 end
