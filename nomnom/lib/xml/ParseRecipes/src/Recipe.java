@@ -97,7 +97,7 @@ public class Recipe {
 				return null;
 			}
 		}
-		return result.replaceAll("<br>|<BR>", "\n").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("&nbsp;", " ").replace("[[", "").replace("]]", "").replaceAll("\\s{1,}", " ").replace("\n", "").replace("\t", "").trim();
+		return result.replaceAll("<br>|<BR>", "\n").replace("&", "&amp;").replaceAll("<.{0,10}>", "").replace("<", "&lt;").replace(">", "&gt;").replace("&nbsp;", " ").replace("[[", "").replace("]]", "").replaceAll("\\s{1,}", " ").replace("\n", "").replace("\t", "").trim();
 	}
 	public List<Ingredient> getIngredients() {
 		return ingredients;
