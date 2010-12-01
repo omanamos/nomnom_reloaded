@@ -1,42 +1,57 @@
-//Using window.onload fixes a javascript clash with existing 
-//libraries that prevented this file from being executed properly
-/*window.onload = function() {
-	$(".ingredient:first").removeClass("hide").addClass("show");
-	$("#next").click(function() { 
-		shift_ingredient(1);	
-	});
-	$("#last").click(function() { 
-		shift_ingredient(-1);	
-	});
-}*/
-
-function shift_ingredient(n) {
-	var ingredients = $(".ingredient");
-	var current_ingredient = $(".ingredient.show")[0];
-	var idx = ingredients.toArray().indexOf(current_ingredient);
-	var newIndex = (idx + n) % ingredients.length;
-	if (newIndex < 0) newIndex += ingredients.length;
-
-	$(current_ingredient).removeClass("show").addClass("hide");
-	$(ingredients[newIndex]).removeClass("hide").addClass("show");
-}
+var cur_ind = -1;
 
 $(document).ready(function(){
-	var body_width = $('body').width();
-	var body_height = $('body').height();
 	$('#amazonFreshFrame').css({
-		'height': body_height - 82
+		'height': $('body').height() - 82
 	});
-	$(".ingredient:first").removeClass("hide").addClass("show");
-	$(".suggestions").change(changeASIN);
 	
-	$("#next").click(function() { 
-		shift_ingredient(1);	
-	});
-	$("#prev").click(function() { 
-		shift_ingredient(-1);	
-	});
+	$("#next").click(shiftIngr);
+	$("#prev").click(shiftIngr);
+	
+	$("#next").click();
 });
+
+function shiftIngr(){
+	var shiftRight = this.id == "next"
+	
+	if(cur_ind <= 0){
+		$("#prev").attr("disabled", true);
+		$("#next").attr("disabled", false);
+	}else if((cur_ind + 1) == ingredients.length){
+		$("#prev").attr("disabled", false);
+		$("#next").attr("disabled", true);
+	}else{
+		$("#prev").attr("disabled", false);
+		$("#next").attr("disabled", false);
+	}
+	cur_ind += shiftRight ? 1 : -1;
+	
+	loadIngr(ingredients[cur_ind]);
+}
+
+function loadIngr(id){
+	if($('#' + id).length){
+		renderIngr($('#' + id));
+		$('#' + element.attr("id") + '_suggestions').change();
+	}else{
+		$.get("/conflict/show", { 'id': id }, 
+			function(data){
+				$(data).appendTo(".ingredients");
+				
+				var element = $('#' + id);
+				var options = $('#' + element.attr("id") + '_suggestions');
+				
+				options.change(changeASIN);
+				renderIngr(element);
+				options.change();
+		});
+	}
+}
+
+function renderIngr(element){
+	$(".ingredient").hide();
+	element.show();
+}
 
 function changeASIN(event){
 	$('#amazonFreshFrame').attr('src', "http://fresh.amazon.com/product?asin=" + $(":selected", $(this)).attr('id'));
