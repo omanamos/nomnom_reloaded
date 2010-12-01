@@ -64,7 +64,7 @@ public class Recipe {
 	public boolean setDescription(String description) {
 		String cleanDescription = cleanData(description);
 		if (cleanDescription != null) {
-			this.description = cleanDescription.split("Image:")[0];
+			this.description = cleanDescription.split("Image:")[0].replaceAll("Category:.*(\\n|$)|category:.*(\\n|$)", "").replaceAll("\\*+#*\\s*|#+\\**\\s*", "");
 			return true;
 		}
 		return false;
@@ -77,14 +77,13 @@ public class Recipe {
 		String cleanDirections = cleanData(directions.replace("\n", "*"));
 		if (cleanDirections != null) {
 			String result = "";
-			String[] temp = cleanDirections.replace("*", "\n").replace("#", "\n").split("\n");
+			String[] temp = cleanDirections.replaceAll("\\*+#*\\s*|#+\\**\\s*", "\n").replaceAll("Category:.*(\\n|$)|category:.*(\\n|$)", "").split("\n");
 			for (int i = 0; i < temp.length; i++) {
 				if (!temp[i].trim().isEmpty()) {
 					result += temp[i].trim() + "\n";
 				}
 			}
 			this.directions = result.trim();
-			//System.out.println(this.directions);
 			return true;
 		}
 		return false;
