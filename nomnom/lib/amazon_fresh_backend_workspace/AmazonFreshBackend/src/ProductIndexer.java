@@ -45,5 +45,21 @@ public class ProductIndexer {
 			e.printStackTrace();
 		}
 	}
+	
+	public void optimize() {
+		try {
+			solrServer.optimize();
+		} catch (SolrServerException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void removeAll() throws SolrServerException, IOException {
+		solrServer.deleteByQuery("*:*");
+		solrServer.commit();
+		System.exit(1);
+	}
 
 }

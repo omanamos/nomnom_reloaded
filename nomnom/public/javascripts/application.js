@@ -15,7 +15,15 @@ $(document).ready(function(){
 	if($('#flash').html() != ''){
 		$('#flash').show();
 	}
-
+	$("#main_search").submit(function(e) {
+		e.stopImmediatePropagation();
+		if ($("#query").val().trim() != "") {
+			$("#main_search").submit();
+		}
+		return false;
+	});
+	
+	$("input#query").autocomplete('/search/show', { delay: 100, selectFirst: false });
 });
 
 function showLogin(){

@@ -1,8 +1,0 @@
-<%- content_for(:context) do -%>conflict_wrapper<%- end -%>
-
-<div>		
-	<frameset rows="10%, 90%">
-		<frame id="conflictFrame" src="<%=url_for :controller => 'conflict', :action => 'index'%>?recipeID=<%= @recipeID %>" />	
-		<frame id="amazonFreshFrame" src="http://fresh.amazon.com/" />
-	</frameset>
-</div>

@@ -9,4 +9,8 @@ class SearchController < ApplicationController
   		@results = Recipe.search(@query)
   	end
   end
+  
+  def show
+  	render :text => ["one\n", "two\n", "three\n"]
+  end
 end
