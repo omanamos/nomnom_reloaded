@@ -12,5 +12,5 @@ nomnom/public/stylesheets/*_packaged.css
 nomnom/public/javascripts/*_packaged.js
 *~
 nomnom/solr/*
-solr/*
 *.zip
+nomnom/lib/amazon_fresh_backend_workspace/.metadata/*
