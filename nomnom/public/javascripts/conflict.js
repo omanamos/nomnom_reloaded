@@ -14,6 +14,7 @@ $(document).ready(function(){
 function shiftIngr(){
 	var shiftRight = this.id == "next"
 	
+	cur_ind += shiftRight ? 1 : -1;
 	if(cur_ind <= 0){
 		$("#prev").attr("disabled", true);
 		$("#next").attr("disabled", false);
@@ -24,7 +25,6 @@ function shiftIngr(){
 		$("#prev").attr("disabled", false);
 		$("#next").attr("disabled", false);
 	}
-	cur_ind += shiftRight ? 1 : -1;
 	
 	loadIngr(ingredients[cur_ind]);
 }
@@ -32,14 +32,14 @@ function shiftIngr(){
 function loadIngr(id){
 	if($('#' + id).length){
 		renderIngr($('#' + id));
-		$('#' + element.attr("id") + '_suggestions').change();
+		$('#' + id + '_suggestions').change();
 	}else{
 		$.get("/conflict/show", { 'id': id }, 
 			function(data){
 				$(data).appendTo(".ingredients");
 				
 				var element = $('#' + id);
-				var options = $('#' + element.attr("id") + '_suggestions');
+				var options = $('#' + id + '_suggestions');
 				
 				options.change(changeASIN);
 				renderIngr(element);
