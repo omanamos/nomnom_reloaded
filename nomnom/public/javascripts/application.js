@@ -21,7 +21,9 @@ $(document).ready(function(){
 			$("#main_search").submit();
 		}
 		return false;
-	})
+	});
+	
+	$("input#query").autocomplete('/search/show', { delay: 100 });
 });
 
 function showLogin(){

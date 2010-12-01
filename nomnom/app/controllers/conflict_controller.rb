@@ -15,6 +15,8 @@ class ConflictController < ApplicationController
   	#end
   end
   
+  private
+  
   def get_item_results ingr
   	ingr.item.gsub!(/([\+\-\(\)\{\}\[\]\*])/) {|match| "\\" + match.to_s }
   	queryResults = solr.select(:q=> ingr.item, :wt=>'ruby', :start=> 0, :rows=> 10)

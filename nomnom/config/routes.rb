@@ -13,6 +13,7 @@ Nomnom::Application.routes.draw do
   match 'conflict_wrapper' => 'conflict_wrapper#index'
   match 'conflict' => 'conflict#index'
   match 'submit' => 'submit#index'
+  match ':controller/:action'
   
   match 'login' => 'user_sessions#create'
   match 'logout' => 'user_sessions#destroy'
