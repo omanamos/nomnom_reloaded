@@ -3,6 +3,10 @@ class SearchController < ApplicationController
   
   def index
   	@query = params[:query]
-  	@results = Recipe.search(@query)
+  	if @query == ""
+  		redirect_to url_for :controller => 'home', :action => 'index'
+  	else
+  		@results = Recipe.search(@query)
+  	end
   end
 end

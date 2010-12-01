@@ -5,7 +5,7 @@ var default_values = {
 $(document).ready(function(){
 	$("body").randombg({
             directory: "../../images/backgrounds/", //directory to image folder
-            howmany: 7 //how many images are in this folder     
+            howmany: 4 //how many images are in this folder     
     });
 	$('#login_form .format').formatter(default_values);
 	$('#show_login').click(showLogin);
