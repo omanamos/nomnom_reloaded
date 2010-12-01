@@ -4,29 +4,54 @@ $(document).ready(function(){
 	$('#amazonFreshFrame').css({
 		'height': $('body').height() - 82
 	});
+	if(sign_in){
+		setupConf();
+	}else{
+		$('#signed_in').click(function(){
+			$('#signin_header').hide();
+			setupConf();
+		});
+	}
+});
+
+function setupConf(){
+	$('#ingr_header').show();
 	
 	$("#next").click(shiftIngr);
 	$("#prev").click(shiftIngr);
 	
 	$("#next").click();
-});
+}
 
 function shiftIngr(){
-	var shiftRight = this.id == "next"
+	var shiftRight = this.id == "next";
 	
-	cur_ind += shiftRight ? 1 : -1;
-	if(cur_ind <= 0){
-		$("#prev").attr("disabled", true);
-		$("#next").attr("disabled", false);
-	}else if((cur_ind + 1) == ingredients.length){
-		$("#prev").attr("disabled", false);
-		$("#next").attr("disabled", true);
+	if($(this).html() != "Finish"){
+		cur_ind += shiftRight ? 1 : -1;
+		if(cur_ind <= 0){
+			$("#prev").attr("disabled", true);
+			$("#next").attr("disabled", false);
+		}else if((cur_ind + 1) == ingredients.length){
+			$("#prev").attr("disabled", false);
+			$("#next").html("Finish");
+		}else{
+			$("#prev").attr("disabled", false);
+			$("#next").attr("disabled", false);
+		}
+	
+		loadIngr(ingredients[cur_ind]);
 	}else{
-		$("#prev").attr("disabled", false);
-		$("#next").attr("disabled", false);
+		$('#ingr_header').hide();
+		$('#amazonFreshFrame').hide();
+		$('#main').show();
+		$('#continue_shopping').click(function(){ $.fancybox.close(); });
+		$('#checkout').click(function(){
+			$('#main').html("<h1>Thanks for using NomNom.</h1><h1>We are redirecting you to Amazon Fresh...</h1>");
+			window.setTimeout(function(){
+				parent.window.location = "http://fresh.amazon.com/";
+			}, 1000);
+		});
 	}
-	
-	loadIngr(ingredients[cur_ind]);
 }
 
 function loadIngr(id){
