@@ -9,13 +9,17 @@ window.onload = function() {
 	}else{
 		$('#signed_in').click(function(){
 			$('#signin_header').hide();
-			setupConf();
+			$('#amazonFreshFrame').hide();
+			$('#instr_main').show();
+			$('#instr_main .next').click(setupConf);
 		});
 	}
 }
 
 function setupConf(){
+	$('#instr_main').hide();
 	$('#ingr_header').show();
+	$('#amazonFreshFrame').show();
 	
 	$("#next").click(shiftIngr);
 	$("#prev").click(shiftIngr);
@@ -43,12 +47,14 @@ function shiftIngr(){
 	}else{
 		$('#ingr_header').hide();
 		$('#amazonFreshFrame').hide();
-		$('#main').show();
-		$('#continue_shopping').click(function(){ $.fancybox.close(); });
+		$('#finish_main').show();
+		$('#continue_shopping').click(function(){ 
+			parent.$.fancybox.close();
+		});
 		$('#checkout').click(function(){
-			$('#main').html("<h1>Thanks for using NomNom.</h1><h1>We are redirecting you to Amazon Fresh...</h1>");
+			$('#finish_main').html("<h1>Thanks for using NomNom.</h1><h1>We are redirecting you to Amazon Fresh...</h1>");
 			window.setTimeout(function(){
-				parent.window.location = "http://fresh.amazon.com/";
+				window.location = "http://fresh.amazon.com/";
 			}, 1000);
 		});
 	}
