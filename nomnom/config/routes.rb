@@ -12,13 +12,14 @@ Nomnom::Application.routes.draw do
   match 'about' => 'about#index'
   match 'conflict_wrapper' => 'conflict_wrapper#index'
   match 'conflict' => 'conflict#index'
-  match 'submit' => 'submit#index'
   match ':controller/:action'
   
   match 'login' => 'user_sessions#create'
   match 'logout' => 'user_sessions#destroy'
   match 'signup' => 'users#new'
   match 'account' => 'users#edit'
+  
+  resources :recipe
   
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

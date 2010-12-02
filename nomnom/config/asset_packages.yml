@@ -32,3 +32,5 @@ stylesheets:
   - conflict
 - user:
   - scaffold
+- recipe:
+  - recipe
