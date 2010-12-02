@@ -21,7 +21,7 @@ class ConflictController < ApplicationController
   	@ingr = Ingredient.find(ingr_id)
   	
   	solr = RSolr.connect :url=>'http://ec2-50-16-26-144.compute-1.amazonaws.com:8984/solr'
-  	@results = eval(solr.select(:q=> @ingr.item, :wt=>'ruby', :start=> 0, :rows=> 10))
+  	@results = eval(solr.select(:q=> @ingr.item.gsub(/([\+\-\(\)\{\}\[\]\*])/) {|match| "\\" + match.to_s }, :wt=>'ruby', :start=> 0, :rows=> 10))
   	render :partial => 'ingredient'
   end
   

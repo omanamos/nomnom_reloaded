@@ -71,7 +71,7 @@ public class Ingredient {
 	}
 	
 	public static String preclean(String s) {
-		return s.toLowerCase().replace("&nbsp;", " ").replace("<br>", "").replace("[[", "").replace("]]", "");
+		return s.toLowerCase().replace("&nbsp;", " ").replace("<br>", "").replace("[[", "").replace("]]", "").replaceAll("<.{0,10}>", "");
 	}
 	public String toString() {
 		return "\t\t\t<ingredient>\n" +

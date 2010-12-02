@@ -1,6 +1,6 @@
 var cur_ind = -1;
 
-$(document).ready(function(){
+window.onload = function() {
 	$('#amazonFreshFrame').css({
 		'height': $('body').height() - 82
 	});
@@ -12,7 +12,7 @@ $(document).ready(function(){
 			setupConf();
 		});
 	}
-});
+}
 
 function setupConf(){
 	$('#ingr_header').show();
