@@ -23,7 +23,7 @@ $(document).ready(function(){
 		return false;
 	});
 	
-	$("input#query").autocomplete('/search/show', { delay: 100, selectFirst: false });
+	$("input#query").autocomplete('/search/show', { delay: 100, selectFirst: true, autoFill: true });
 });
 
 function showLogin(){
