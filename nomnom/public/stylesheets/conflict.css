@@ -17,7 +17,24 @@ body {
     margin: 0;
 }
 
-#main{
+#instr_main{
+	display: none;
+	text-align: left;
+    width: 80%;
+    margin: 20px auto;
+    padding: 25px 30px;
+    border: 4px solid #924615;
+    background-color: #ffffff;
+}
+	#instr_main .next{
+		float: right;
+	}
+	#instr_main h1{
+		font-size: 32px;
+		text-decoration: underline;
+	}
+
+#finish_main{
 	display: none;
 	text-align: center;
     width: 80%;
@@ -26,10 +43,10 @@ body {
     border: 4px solid #924615;
     background-color: #ffffff;
 }
-	#main h1{
+	#finish_main h1{
 		font-size: 20px;
 	}
-	#main h2{
+	#finish_main h2{
 		font-size: 16px;
 	}
 
