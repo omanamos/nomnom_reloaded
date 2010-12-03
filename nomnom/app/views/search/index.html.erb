@@ -23,8 +23,8 @@
 	        <div class="recipetitle">
 	            <!--<input id="<%= button_id %>" type="submit" class="viewtoggle" value="...>>>"/>-->
 	        	<a class="dropdown" id="<%= button_id %>">
-	        		<%= recipe_title %>
 	        		<img id="<%= toggle_id %>" src="<%= image_path 'plus.jpg' %>" height=16px weight=16px alt="expand"" />
+	        		<%= recipe_title %>
 	        	</a>
 	        </div>
 	        <a class="ingredbutton get_ingredients" href="<%=url_for :controller => 'conflict', :action => 'index'%>?recipeID=<%= recipe.id %>">Get Ingredients</a>
