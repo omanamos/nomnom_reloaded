@@ -1,9 +1,8 @@
 <%- content_for(:context) do -%>search<%- end -%>
 <%- num_recipes = @results.docs.length -%>
 
-<h1 class="title">Search Results</h1>
+<h1 class="title">Search Results: Found <%= num_recipes %> Recipe<%=(num_recipes != 1) ? "s" : ""%>.</h1>
 
-<h4>Found <%= num_recipes %> Recipe<%=(num_recipes != 1) ? "s" : ""%>.</h4>
 <%- if @results.suggest? and @results.total == 0 and @results.suggest != @query -%>
 	<p>Did you mean <a href="<%=url_for :controller => 'search', :action => 'index'%>?query=<%= @results.suggest %>"><%= @results.suggest %></a>?</p>
 <%- end -%>
