@@ -3,8 +3,6 @@ html {
 	width: 100%;	
 }
 body {
-    background-image: url('../images/pattern_brown.gif');
-    background-color: #F29857;
 	background-repeat: repeat;
 	background-position:center top;
 	background-attachment:fixed;
