@@ -84,6 +84,7 @@ h4 {
 	color: #A0522D;
     font-size: 16px;
     margin-bottom: 8px;
+    text-align: left;
 }
 
 li {
@@ -98,3 +99,8 @@ hr {
 	clear: both;	
 }
 
+.original_recipe {
+	text-align: left;
+	margin: 0;
+	padding: 0;
+}
