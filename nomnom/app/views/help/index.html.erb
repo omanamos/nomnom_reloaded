@@ -1,3 +1,45 @@
 <%- content_for(:context) do -%>help<%- end -%>
 <h1 class="title">Help</h1>
-<p>Help is Forthcoming</p>
+
+<table id="help_table">
+	<tr>
+		<td class="help_info left">
+			<b>Step 1:</b></br></br>Think of a delicious recipe.
+		</td>
+		<td class="help_pic right">
+			<img src="<%= image_path 'imagine_recipe.jpg' %>" alt="imagine" title="Imagine!" height=270px />
+		</td>
+	</tr>
+	<tr>
+		<td class="help_pic left">
+			<img src="<%= image_path 'recipe_demo.jpg' %>" alt="imagine" title="Recipe!" height=200px />
+		</td>
+		<td class="help_info right">
+			<b>Step 2:</b></br></br>Find that recipe using the search bar.</br>Or submit one of your own.
+		</td>
+	</tr>
+	<tr>
+		<td class="help_info left">
+			<b>Step 3:</b></br></br>Click "Get Ingredients".</br>Sign in to AmazonFresh.
+		</td>
+		<td class="help_pic right">
+			<img src="<%= image_path 'ingredients_demo.jpg' %>" alt="imagine" title="Imagine!" height=250px />
+		</td>
+	</tr>
+	<tr>
+		<td class="help_pic left">
+			<img src="<%= image_path 'amazonfresh_truck.jpg' %>" alt="imagine" title="Recipe!" height=150px />
+		</td>
+		<td class="help_info left">
+			<b>Step 4:</b></br></br>Add the ingredients to your cart.</br>Ship it! 
+		</td>
+	</tr>
+	<tr>
+		<td class="help_info left">
+			<b>Step 5:</b></br></br>Get your apron on, time to cook!
+		</td>
+		<td class="help_pic">
+			<img class="right" src="<%= image_path 'ready_cook.jpg' %>" alt="imagine" title="Imagine!" height=220px />
+		</td>
+	</tr>
+</table>

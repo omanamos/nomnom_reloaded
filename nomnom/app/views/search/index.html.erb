@@ -23,8 +23,8 @@
 	        <div class="recipetitle">
 	            <!--<input id="<%= button_id %>" type="submit" class="viewtoggle" value="...>>>"/>-->
 	        	<a class="dropdown" id="<%= button_id %>">
-	        		<%= recipe_title %>
 	        		<img id="<%= toggle_id %>" src="<%= image_path 'plus.jpg' %>" height=16px weight=16px alt="expand"" />
+	        		<%= recipe_title %>
 	        	</a>
 	        </div>
 	        <a class="ingredbutton get_ingredients" href="<%=url_for :controller => 'conflict', :action => 'index'%>?recipeID=<%= recipe.id %>">Get Ingredients</a>
@@ -40,11 +40,19 @@
 	        	<h3>See more details at: <a class="original_recipe" href="<%= recipe_url %>"><%= recipe_url %></a></h3>
 	        	<h3>Ingredients</h3>
 	        	<ul>
-	        		<%- for ingr in recipe.ingredients -%>
+	        		<%- for ingr in recipe.ingredients 
+	        				if ingr.amount != "null" then
+	        		-%>
 	        		<li>
 	        			<%= ingr.amount + " " + ingr.item%>
 	        		</li>
-	        		<%- end -%>
+	        		<%- else -%>
+	        		<li>
+	        			<%= ingr.item%>
+	        		</li>
+	        		<%- 
+	        			end
+	        		end -%>
 	        	</ul>
 	        	<h3>Directions</h3>
 	           	<p class="recipe_directions">

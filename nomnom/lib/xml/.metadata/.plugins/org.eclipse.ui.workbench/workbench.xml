@@ -47,13 +47,13 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ParseRecipes/src/ParseMain.java"/>
 <editorState selectionLength="0" selectionOffset="0"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Ingredient.java" partName="Ingredient.java" path="/Users/royman/Code/cse454/nomnom_reloaded/nomnom/lib/xml/ParseRecipes/src/Ingredient.java" title="Ingredient.java" tooltip="ParseRecipes/src/Ingredient.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Ingredient.java" partName="Ingredient.java" path="/Users/royman/Code/cse454/nomnom_reloaded/nomnom/lib/xml/ParseRecipes/src/Ingredient.java" title="Ingredient.java" tooltip="ParseRecipes/src/Ingredient.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ParseRecipes/src/Ingredient.java"/>
-<editorState selectionLength="0" selectionOffset="3335"/>
+<editorState selectionLength="0" selectionOffset="1433"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RecipeParseHandler.java" partName="RecipeParseHandler.java" path="/Users/royman/Code/cse454/nomnom_reloaded/nomnom/lib/xml/ParseRecipes/src/RecipeParseHandler.java" title="RecipeParseHandler.java" tooltip="ParseRecipes/src/RecipeParseHandler.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RecipeParseHandler.java" partName="RecipeParseHandler.java" path="/Users/royman/Code/cse454/nomnom_reloaded/nomnom/lib/xml/ParseRecipes/src/RecipeParseHandler.java" title="RecipeParseHandler.java" tooltip="ParseRecipes/src/RecipeParseHandler.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ParseRecipes/src/RecipeParseHandler.java"/>
-<editorState selectionLength="0" selectionOffset="2042"/>
+<editorState selectionLength="0" selectionOffset="2049"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CrawledDataExpanderClient.java" partName="CrawledDataExpanderClient.java" path="/Users/royman/Code/cse454/nomnom_reloaded/nomnom/lib/amazon_fresh_backend/AmazonFreshCrawler/src/CrawledDataExpanderClient.java" title="CrawledDataExpanderClient.java" tooltip="AmazonFreshCrawler/CrawledDataExpanderClient.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/AmazonFreshCrawler/CrawledDataExpanderClient.java"/>
@@ -247,167 +247,164 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/AmazonFreshCrawler/ProductInfoExtractor.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ParseRecipes/src/Recipe.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ParseRecipes/src/Ingredient.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ParseRecipes/src/ParseMain.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ParseRecipes/src/Ingredient.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ParseRecipes/src/RecipeParseHandler.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ParseRecipes/src/Recipe.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ParseRecipes/src/Recipe.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ParseRecipes/src/Ingredient.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ParseRecipes/src/RecipeParseHandler.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ParseRecipes/src/Ingredient.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ParseRecipes/src/Recipe.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ParseRecipes/src/ParseMain.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ParseRecipes/src/RecipeParseHandler.java"/>
 </editors>
-<item historyLabel="ProductInfoExtractor.java" index="0">
-<position info="not_deleted" x="4235" y="0"/>
+<item historyLabel="ParseMain.java" index="0">
+<position/>
+</item>
+<item historyLabel="Ingredient.java" index="2">
+<position info="not_deleted" x="1775" y="0"/>
 </item>
 <item historyLabel="Recipe.java" index="1">
-<position info="not_deleted" x="151" y="0"/>
-</item>
-<item historyLabel="Ingredient.java" index="2">
-<position info="not_deleted" x="1675" y="0"/>
-</item>
-<item historyLabel="Ingredient.java" index="2">
-<position info="not_deleted" x="2017" y="0"/>
-</item>
-<item historyLabel="Ingredient.java" index="2">
-<position/>
-</item>
-<item historyLabel="ParseMain.java" index="3">
-<position/>
-</item>
-<item historyLabel="Ingredient.java" index="4">
-<position info="not_deleted" x="1775" y="0"/>
-</item>
-<item historyLabel="ParseMain.java" index="3">
-<position/>
-</item>
-<item historyLabel="Ingredient.java" index="4">
-<position info="not_deleted" x="1775" y="0"/>
-</item>
-<item historyLabel="RecipeParseHandler.java" index="5">
-<position info="not_deleted" x="1944" y="0"/>
-</item>
-<item historyLabel="Recipe.java" index="6">
-<position/>
-</item>
-<item historyLabel="ParseMain.java" index="3">
-<position info="not_deleted" x="126" y="0"/>
-</item>
-<item historyLabel="Recipe.java" index="7">
-<position/>
-</item>
-<item historyLabel="ParseMain.java" index="3">
-<position/>
-</item>
-<item historyLabel="Ingredient.java" index="8">
-<position info="not_deleted" x="1775" y="0"/>
-</item>
-<item historyLabel="Recipe.java" index="7">
 <position info="not_deleted" x="1639" y="0"/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position info="not_deleted" x="2067" y="0"/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position/>
 </item>
-<item historyLabel="RecipeParseHandler.java" index="9">
+<item historyLabel="RecipeParseHandler.java" index="3">
 <position info="not_deleted" x="2049" y="0"/>
 </item>
-<item historyLabel="ParseMain.java" index="3">
+<item historyLabel="ParseMain.java" index="0">
 <position/>
 </item>
-<item historyLabel="Ingredient.java" index="8">
+<item historyLabel="Ingredient.java" index="2">
 <position info="not_deleted" x="1775" y="0"/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position info="not_deleted" x="2134" y="0"/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position info="not_deleted" x="2129" y="0"/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position info="not_deleted" x="2133" y="0"/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position info="not_deleted" x="2110" y="0"/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position info="not_deleted" x="2104" y="0"/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position info="not_deleted" x="1583" y="0"/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position info="not_deleted" x="2423" y="0"/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position info="not_deleted" x="1916" y="0"/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position info="not_deleted" x="1726" y="0"/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position info="not_deleted" x="1680" y="0"/>
 </item>
-<item historyLabel="RecipeParseHandler.java" index="9">
+<item historyLabel="RecipeParseHandler.java" index="3">
 <position info="not_deleted" x="2042" y="0"/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position info="not_deleted" x="1680" y="0"/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position info="not_deleted" x="2615" y="0"/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position info="not_deleted" x="2610" y="0"/>
 </item>
-<item historyLabel="Recipe.java" index="7">
+<item historyLabel="Recipe.java" index="1">
 <position info="not_deleted" x="2614" y="0"/>
 </item>
-<item historyLabel="Ingredient.java" index="10">
+<item historyLabel="Ingredient.java" index="4">
 <position info="not_deleted" x="1775" y="0"/>
 </item>
-<item historyLabel="Ingredient.java" index="10">
+<item historyLabel="Ingredient.java" index="4">
 <position info="not_deleted" x="3466" y="0"/>
 </item>
-<item active="true" historyLabel="Ingredient.java" index="10">
+<item historyLabel="Ingredient.java" index="4">
 <position info="not_deleted" x="3461" y="0"/>
+</item>
+<item historyLabel="Ingredient.java" index="4">
+<position info="not_deleted" x="4737" y="0"/>
+</item>
+<item historyLabel="Ingredient.java" index="4">
+<position info="not_deleted" x="4736" y="0"/>
+</item>
+<item historyLabel="Recipe.java" index="5">
+<position info="not_deleted" x="2606" y="0"/>
+</item>
+<item historyLabel="ParseMain.java" index="6">
+<position/>
+</item>
+<item historyLabel="RecipeParseHandler.java" index="7">
+<position info="not_deleted" x="2049" y="0"/>
+</item>
+<item historyLabel="ParseMain.java" index="6">
+<position/>
+</item>
+<item historyLabel="Ingredient.java" index="4">
+<position info="not_deleted" x="4648" y="0"/>
+</item>
+<item historyLabel="Recipe.java" index="5">
+<position info="not_deleted" x="2606" y="0"/>
+</item>
+<item historyLabel="ParseMain.java" index="6">
+<position/>
+</item>
+<item historyLabel="Ingredient.java" index="4">
+<position info="not_deleted" x="1433" y="0"/>
+</item>
+<item historyLabel="Recipe.java" index="5">
+<position info="not_deleted" x="2606" y="0"/>
+</item>
+<item historyLabel="ParseMain.java" index="6">
+<position/>
+</item>
+<item active="true" historyLabel="RecipeParseHandler.java" index="7">
+<position info="not_deleted" x="2049" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
