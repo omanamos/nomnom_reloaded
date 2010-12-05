@@ -46,7 +46,7 @@ function shiftIngr(){
 		$('#main').show();
 		$('#continue_shopping').click(function(){ $.fancybox.close(); });
 		$('#checkout').click(function(){
-			$('#main').html("<h1>Thanks for using NomNom.</h1><h1>We are redirecting you to Amazon Fresh...</h1>");
+			$('#finish_main').html("<h1>Thanks for using NomNom.</h1><h1>We are redirecting you to Amazon Fresh...</h1>");
 			window.setTimeout(function(){
 				parent.window.location = "http://fresh.amazon.com/";
 			}, 1500);
