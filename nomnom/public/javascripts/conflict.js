@@ -43,7 +43,7 @@ function shiftIngr(){
 	}else{
 		$('#ingr_header').hide();
 		$('#amazonFreshFrame').hide();
-		$('#main').show();
+		$('#finish_main').show();
 		$('#continue_shopping').click(function(){ $.fancybox.close(); });
 		$('#checkout').click(function(){
 			$('#finish_main').html("<h1>Thanks for using NomNom.</h1><h1>We are redirecting you to Amazon Fresh...</h1>");
