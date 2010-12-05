@@ -12,7 +12,7 @@ class SearchController < ApplicationController
   end
   
   def show
-    prefix = params[:q].gsub(/[ \t]+/, '').gsub
+    prefix = params[:q].gsub(/[ \t]+/, '')
     solr = RSolr.connect :url => 'http://localhost:8982/solr'
     
     response = solr.terms({'terms.fl' => 'title_t', 'terms.prefix' => prefix, 'terms.limit' => -1, 'omitHeader' => true})
