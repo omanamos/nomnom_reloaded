@@ -44,7 +44,7 @@ function shiftIngr(){
 		$('#ingr_header').hide();
 		$('#amazonFreshFrame').hide();
 		$('#finish_main').show();
-		$('#continue_shopping').click(function(){ $.fancybox.close(); });
+		$('#continue_shopping').click(function(){ parent.$.fancybox.close(); });
 		$('#checkout').click(function(){
 			$('#finish_main').html("<h1>Thanks for using NomNom.</h1><h1>We are redirecting you to Amazon Fresh...</h1>");
 			window.setTimeout(function(){
