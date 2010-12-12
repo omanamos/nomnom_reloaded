@@ -26,7 +26,7 @@ function setupConf(){
 function shiftIngr(){
 	var shiftRight = this.id == "next";
 	
-	if($(this).html() != "Finish"){
+	if($(this).html() != "Finish" && shiftRight){
 		cur_ind += shiftRight ? 1 : -1;
 		if(cur_ind <= 0){
 			$("#prev").attr("disabled", true);
