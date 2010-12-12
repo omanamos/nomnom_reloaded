@@ -7,11 +7,40 @@
 	<button id="next" class="nav">Next</button>
 </div>
 <div id="signin_header">
-	<h2>Please Sign In</h2>
-	<button id="signed_in">I'm signed in</button>
+	<h2>Please Sign In to Amazon Fresh</h2>
+	<button id="signed_in">I have signed in</button>
+</div>
+<div id="instr_main">
+	<button class="next">Continue</button>
+	<h1>Instructions</h1>
+	<ul>
+		<li>For each ingredient, select the matching item from the select box in the upper right corner.</li>
+		<li>Once selected, and the correct Amazon Fresh page loads, click Add to Cart on Amazon Fresh</li>
+		<li>Once you have added the item to the cart, click next for the next ingredient.</li>
+	</ul>
+	<div class="recipe">
+        <h1><%= @recipe.title %></h1>
+        <div class="extrainfo">
+        	<%= @recipe.description %>
+        </div>
+        <div class="recipe_content">
+        	<h3>Ingredients</h3>
+        	<ul>
+        		<%- for ingr in @recipe.ingredients -%>
+        		<li>
+        			<%= ingr.amount + " " + ingr.item%>
+        		</li>
+        		<%- end -%>
+        	</ul>
+        	<h3>Directions</h3>
+           	<p class="recipe_directions">
+<%=@recipe.directions%>
+            </p>
+        </div>
+	</div>
 </div>
 <iframe id="amazonFreshFrame" src="http://fresh.amazon.com/SignIn"></iframe>
-<div id="main">
+<div id="finish_main">
 	<h1>Congratulations! You've finished adding the recipe to your cart.</h1>
 	<h2>Would you like to:</h2>
 	<button id="continue_shopping">Continue Shopping</button>

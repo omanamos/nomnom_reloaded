@@ -2,10 +2,11 @@ $(document).ready(function(){
     $('input.get_ingredients').click(chooseIngredients);
     $('input.page_top_search').click(clearSearchBox);
 
-	$('input.viewtoggle').click(viewRecipeBody);
+	//$('input.viewtoggle').click(viewRecipeBody);
+	$('.dropdown').click(viewRecipeBody);
 	
 	$('a.get_ingredients').fancybox({
-		'width'				: '80%',
+		'width'				: '100%',
 		'height'			: '100%',
 		'autoScale'			: true,
 		'transitionIn'		: 'elastic',
@@ -14,8 +15,8 @@ $(document).ready(function(){
 	});
 	
 	$('a.original_recipe').fancybox({
-		'width'				: '75%',
-		'height'			: '90%',
+		'width'				: '100%',
+		'height'			: '100%',
 		'autoScale'			: false,
 		'transitionIn'		: 'elastic',
 		'transitionOut'		: 'elastic',
@@ -35,16 +36,17 @@ function getRecipeNames(request, callback) {
 }
 
 function viewRecipeBody() {
+	var toggle = $("#toggle_" + this.id.split("_")[1]);
     var text = $("#body_" + this.id.split("_")[1]);
     if(text.css("display") == "none") {
         text.slideDown(500);
-        //this.value = "Hide Recipe";
-        this.value = "<<<...";
+        //this.value = "<<<...";
+        $(toggle).attr('src', '../images/minus.jpg')
     }
     else {
         text.slideUp(500);
-        //this.value = "View Recipe";
-        this.value = "...>>>";
+        //this.value = "...>>>";
+        $(toggle).attr('src', '../../images/plus.jpg')
     }
 }
 

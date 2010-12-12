@@ -85,7 +85,6 @@ public class Ingredient {
 		Matcher m = p.matcher(s2);
 		Matcher m2 = p2.matcher(s2);
 		//Parse amount and item
-		//System.out.println(p.toString());
 		if (m.matches()) {
 			String amount = m.group(3);
 			String item = m.group(m.groupCount());
@@ -106,11 +105,13 @@ public class Ingredient {
 			String item = m2.group(m2.groupCount());
 			if (item != null) {
 				String cleanItem = clean(item);
-				//System.out.println("MATCHED:" + s2 + "\n\t" + cleanItem);
-				//for (int i = 0; i <= m2.groupCount(); i++) {
-				//	System.out.println(m2.group(i));
-				//}
-				return new Ingredient(cleanItem, null);
+				if (cleanItem != null && !cleanItem.isEmpty()) {
+					//System.out.println("MATCHED:" + s2 + "\n\t" + cleanItem);
+					//for (int i = 0; i <= m2.groupCount(); i++) {
+					//	System.out.println(m2.group(i));
+					//}
+					return new Ingredient(cleanItem, null);
+				}
 			}
 		}
 		//System.out.println("NON_MATCHED:"+ s2);

@@ -12,11 +12,22 @@ javascripts:
   - jquery/jquery.autocomplete
   - application
 - home:
+  - backgroundChanger
   - home
 - search:
+  - backgroundChanger
   - search
 - conflict:
   - conflict
+- help:
+  - backgroundChanger
+- about:
+  - backgroundChanger
+- user:
+  - backgroundChanger
+- recipe:
+  - backgroundChanger
+  - recipe
 
 stylesheets:
 - base:
@@ -34,3 +45,7 @@ stylesheets:
   - scaffold
 - recipe:
   - recipe
+- help:
+  - help
+- about:
+  - about

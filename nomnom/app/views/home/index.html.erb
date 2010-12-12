@@ -2,7 +2,7 @@
 <a href="<%=url_for :controller => 'home', :action => 'index'%>" class="image-link">
 	<img src= "<%= image_path 'projectnomnom_title.jpg' %>" alt="nomnom_title" title="Nom nom!" />
 </a>
-<img src="<%= image_path 'nomnom_image.jpg' %>" alt="nomnom_image" title="How it be done." height="200px"/>
+<img id="banner" src="" alt="nomnom_image" title="How it be done." width="750px"/>
 <form id="main_search" action="<%=url_for :controller => 'search', :action => 'index'%>" method="get">
 	<input id="query" name="query" class="search homesearch" type="text" maxlength="40" value="" />
 	<input class="button homebutton" type="submit" value="Find Recipes!"/>

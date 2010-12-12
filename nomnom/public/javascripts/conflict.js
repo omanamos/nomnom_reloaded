@@ -2,7 +2,7 @@ var cur_ind = -1;
 
 window.onload = function() {
 	$('#amazonFreshFrame').css({
-		'height': $('body').height() - 82
+		'height': $('body').height() - 88
 	});
 	if(sign_in){
 		setupConf();
@@ -26,30 +26,32 @@ function setupConf(){
 function shiftIngr(){
 	var shiftRight = this.id == "next";
 	
-	if($(this).html() != "Finish"){
+	if($(this).html() != "Finish" && shiftRight){
 		cur_ind += shiftRight ? 1 : -1;
 		if(cur_ind <= 0){
 			$("#prev").attr("disabled", true);
 			$("#next").attr("disabled", false);
+			$("#next").html("Next");
 		}else if((cur_ind + 1) == ingredients.length){
 			$("#prev").attr("disabled", false);
 			$("#next").html("Finish");
 		}else{
 			$("#prev").attr("disabled", false);
 			$("#next").attr("disabled", false);
+			$("#next").html("Next");
 		}
 	
 		loadIngr(ingredients[cur_ind]);
 	}else{
 		$('#ingr_header').hide();
 		$('#amazonFreshFrame').hide();
-		$('#main').show();
-		$('#continue_shopping').click(function(){ $.fancybox.close(); });
+		$('#finish_main').show();
+		$('#continue_shopping').click(function(){ parent.$.fancybox.close(); });
 		$('#checkout').click(function(){
-			$('#main').html("<h1>Thanks for using NomNom.</h1><h1>We are redirecting you to Amazon Fresh...</h1>");
+			$('#finish_main').html("<h1>Thanks for using NomNom.</h1><h1>We are redirecting you to Amazon Fresh...</h1>");
 			window.setTimeout(function(){
 				parent.window.location = "http://fresh.amazon.com/";
-			}, 1000);
+			}, 1500);
 		});
 	}
 }

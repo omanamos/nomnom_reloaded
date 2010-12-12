@@ -1,7 +1,8 @@
 <%- content_for(:context) do -%>search<%- end -%>
 <%- num_recipes = @results.docs.length -%>
 
-<h4>Found <%= num_recipes %> Recipe<%=(num_recipes != 1) ? "s" : ""%>.</h4>
+<h1 class="title">Search Results: Found <%= num_recipes %> Recipe<%=(num_recipes != 1) ? "s" : ""%>.</h1>
+
 <%- if @results.suggest? and @results.total == 0 and @results.suggest != @query -%>
 	<p>Did you mean <a href="<%=url_for :controller => 'search', :action => 'index'%>?query=<%= @results.suggest %>"><%= @results.suggest %></a>?</p>
 <%- end -%>
@@ -14,30 +15,44 @@
         	recipe_picture = "http://images2.wikia.nocookie.net/__cb20080516004129/recipes/images/d/da/" + recipe.description.gsub(/.*Image:(.*)\.jpg.*/, '\1.jpg');
         	recipe_url = "http://recipes.wikia.com/wiki/" + recipe.title.gsub(" ", "_");
             text_id = "body_" + i.to_s;
-            button_id = "toggle_" + i.to_s;
+            button_id = "button_" + i.to_s;
+            toggle_id = "toggle_" + i.to_s;
             ingr_id = "ingredient_" + i.to_s;
     -%>
     	<div class="recipe">
 	        <div class="recipetitle">
-	            <a class="original_recipe" href="<%= recipe_url %>"><%= recipe_title %></a>
+	            <!--<input id="<%= button_id %>" type="submit" class="viewtoggle" value="...>>>"/>-->
+	        	<a class="dropdown" id="<%= button_id %>">
+	        		<img id="<%= toggle_id %>" src="<%= image_path 'plus.jpg' %>" height=16px weight=16px alt="expand"" />
+	        		<%= recipe_title %>
+	        	</a>
 	        </div>
-	        	<a class="ingredbutton get_ingredients" href="<%=url_for :controller => 'conflict', :action => 'index'%>?recipeID=<%= recipe.id %>">Get Ingredients</a>
+	        <a class="ingredbutton get_ingredients" href="<%=url_for :controller => 'conflict', :action => 'index'%>?recipeID=<%= recipe.id %>">Get Ingredients</a>
 	        <!--<input id="<%= button_id %>" type="submit" class="viewtoggle button ingredbutton" value="View Recipe"/>-->
+	        
 	        <div class="extrainfo">
 	        	<!--<img src="<%= recipe_picture %>" alt="some_text"/>-->
 	        	<!--<%= recipe_picture %>-->
 	        	<%= recipe_description %>
-	        	<input id="<%= button_id %>" type="submit" class="viewtoggle" value="...>>>"/>
 	        </div>
 	        
 	        <div id="<%= text_id %>" class="recipe_content">
+	        	<h3>See more details at: <a class="original_recipe" href="<%= recipe_url %>"><%= recipe_url %></a></h3>
 	        	<h3>Ingredients</h3>
 	        	<ul>
-	        		<%- for ingr in recipe.ingredients -%>
+	        		<%- for ingr in recipe.ingredients 
+	        				if ingr.amount != "null" then
+	        		-%>
 	        		<li>
 	        			<%= ingr.amount + " " + ingr.item%>
 	        		</li>
-	        		<%- end -%>
+	        		<%- else -%>
+	        		<li>
+	        			<%= ingr.item%>
+	        		</li>
+	        		<%- 
+	        			end
+	        		end -%>
 	        	</ul>
 	        	<h3>Directions</h3>
 	           	<p class="recipe_directions">

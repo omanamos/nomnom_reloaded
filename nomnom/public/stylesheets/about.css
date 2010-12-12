@@ -1,0 +1,28 @@
+.about_info {
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 14px;
+	text-align: left;
+	padding-left: 20px;
+}
+
+h3 {
+	font-size: 18px;
+	text-align: left;
+	padding-left: 10px;
+}
+
+#contact_labels {
+	text-decoration: underline;
+}
+
+table, tr, td {
+	font-size: 14px;
+}
+
+td {
+	padding-right: 20px;
+}
+
+h1 {
+	padding-bottom: 10px;
+}

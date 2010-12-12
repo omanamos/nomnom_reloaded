@@ -31,4 +31,25 @@
             })
         }
     })
+    
+    $.randompic = {
+		defaults: {
+			directory: "../../images/banners/",
+			howmany: 2
+
+		}
+	}
+    $.fn.extend({
+        randompic:function(config) {
+            var config = $.extend({}, $.randompic.defaults, config);
+			return this.each(function() {
+		
+				var directory = config.directory, howmany = config.howmany;
+
+				var which = Math.floor(Math.random()*howmany)+1;
+				$(this).attr('src', directory + 'nomnom_banner' + which + '.jpg')
+			  
+            })
+        }
+    })
 })(jQuery);

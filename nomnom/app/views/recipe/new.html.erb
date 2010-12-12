@@ -1,4 +1,5 @@
 <%- content_for(:context) do -%>recipe<%- end -%>
+<h1 class="title">Submit a Recipe</h1>
 <div class="recipe_info">
 	Here you can submit a recipe by filling out the description, ingredients and directions.
 </div>
@@ -16,7 +17,7 @@
 		<table class="recipe_ingredients">
 			<%-
 			i = 0;
-			while i < 15 -%>
+			while i < 3 -%>
 				<tr>
 					<td>Amount: <input name="amount_<%= i %>" class="ingredient_text" type="text" maxlength="40" value=""/></td>
 					<td>Ingredient: <input name="item_<%= i %>" class="ingredient_text" type="text" maxlength="40" value=""/></td>
@@ -25,6 +26,7 @@
 				i += 1;
 			end -%>
 		</table>
+		<button id="add_ingredient">Add Ingredient</button>
 	</div>
 	</br>
 	<h6>Directions</h6>
