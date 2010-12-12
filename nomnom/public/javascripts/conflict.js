@@ -31,12 +31,14 @@ function shiftIngr(){
 		if(cur_ind <= 0){
 			$("#prev").attr("disabled", true);
 			$("#next").attr("disabled", false);
+			$("#next").html("Next");
 		}else if((cur_ind + 1) == ingredients.length){
 			$("#prev").attr("disabled", false);
 			$("#next").html("Finish");
 		}else{
 			$("#prev").attr("disabled", false);
 			$("#next").attr("disabled", false);
+			$("#next").html("Next");
 		}
 	
 		loadIngr(ingredients[cur_ind]);
