@@ -1,5 +1,5 @@
 <div id="<%= @ingr.id %>" class="ingredient hide">
-	<h2>Suggested products for <strong><%= @ingr.amount + " " +  @ingr.item %></strong>:</h2>
+	<h2>Suggested products for <strong><%= ((@ingr.amount.nil?) ? "" : (@ingr.amount + " ")) +  @ingr.item %></strong>:</h2>
 <%- if @results['response']['docs'].length == 0 -%>
 	<p class="itemFail">We're sorry, we have no suggestions for <%= ingr.item %></p>
 <%- else -%>
