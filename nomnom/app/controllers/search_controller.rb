@@ -3,11 +3,14 @@ class SearchController < ApplicationController
   
   def index
   	@query = params[:query]
+  	@start = params[:start]
+  	#@limit = params[:limit]
+  	@limit = 30
   	escaped_query = @query.gsub(/([\+\-\(\)\{\}\[\]\*])/) {|match| "\\" + match.to_s }
   	if @query == ""
   		redirect_to url_for :controller => 'home', :action => 'index'
   	else
-  		@results = Recipe.search(escaped_query)
+  		@results = Recipe.search(escaped_query, :offset => @start, :limit => @limit)
   	end
   end
   

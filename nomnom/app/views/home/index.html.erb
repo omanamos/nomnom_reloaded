@@ -4,6 +4,8 @@
 </a>
 <img id="banner" src="" alt="nomnom_image" title="How it be done." width="750px"/>
 <form id="main_search" action="<%=url_for :controller => 'search', :action => 'index'%>" method="get">
+	<!--<input name="limit" type="hidden" value="30"/>-->
 	<input id="query" name="query" class="search homesearch" type="text" maxlength="40" value="" />
+	<input name="start" type="hidden" value="0"/>
 	<input class="button homebutton" type="submit" value="Find Recipes!"/>
 </form>

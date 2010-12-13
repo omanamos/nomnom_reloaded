@@ -1,5 +1,10 @@
 <%- content_for(:context) do -%>search<%- end -%>
-<%- num_recipes = @results.docs.length -%>
+<%- num_recipes = @results.total
+	start = @start.to_i
+	finish = start + @limit
+	loopmax = @results.results.length
+	
+-%>
 
 <h1 class="title">Search Results: Found <%= num_recipes %> Recipe<%=(num_recipes != 1) ? "s" : ""%>.</h1>
 
@@ -8,7 +13,7 @@
 <%- end -%>
 <div id="recipesbox">
     <%-
-        for i in (0..(num_recipes - 1))
+        for i in (0..(loopmax - 1))
         	recipe = @results.docs[i];
         	recipe_title = recipe.title.split(' ').map {|w| w = (w.length > 3) ? w.capitalize : w }.join(' ');
         	recipe_description = (recipe.description.length > 1) ? recipe.description.strip.gsub("[[","").gsub("]]","").gsub(/Image.*/, "") : "";
@@ -28,7 +33,6 @@
 	        	</a>
 	        </div>
 	        <a class="ingredbutton get_ingredients" href="<%=url_for :controller => 'conflict', :action => 'index'%>?recipeID=<%= recipe.id %>">Get Ingredients</a>
-	        <!--<input id="<%= button_id %>" type="submit" class="viewtoggle button ingredbutton" value="View Recipe"/>-->
 	        
 	        <div class="extrainfo">
 	        	<!--<img src="<%= recipe_picture %>" alt="some_text"/>-->
@@ -64,4 +68,11 @@
 	                <hr />
 	            <%- end -%>
     <%- end -%>
+    </br>
+    <%- if start > 0  -%>
+    	<a id="prev_page" href="<%=url_for :controller => 'search', :action => 'index'%>?query=<%= @results.suggest %>&start=<%=start - @limit%>"><< Previous Page</a>
+	<%- end -%>
+    <%- if finish < num_recipes  -%>
+    	<a id="next_page" href="<%=url_for :controller => 'search', :action => 'index'%>?query=<%= @results.suggest %>&start=<%=finish%>">Next Page >></a>
+	<%- end -%>
 </div>

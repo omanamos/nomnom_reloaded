@@ -17,7 +17,9 @@
     				<img src="<%= image_path 'projectnomnom_title_small.jpg' %>" alt="nomnom_title" title="Nom nom!" />
 				</a>
 				<form id="main_search" action="<%=url_for :controller => 'search', :action => 'index'%>" method="get">
+					<!--<input name="limit" type="hidden" value="30"/>-->
 	    			<input id="query" name="query" class="search page_top_search" type="text" maxlength="40" value="<%=@query%>" />
+					<input name="start" type="hidden" value="0"/>
 	    			<input class="button page_top_button" type="submit" value="Find Recipes!"/>
 				</form>
 			</div>

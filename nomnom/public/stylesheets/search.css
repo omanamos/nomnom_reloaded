@@ -104,3 +104,13 @@ hr {
 	margin: 0;
 	padding: 0;
 }
+
+#prev_page {
+	font-size: 17px;
+	float: left;
+}
+
+#next_page {
+	font-size: 17px;
+	float: right;
+}
