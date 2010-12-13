@@ -45,3 +45,7 @@ stylesheets:
   - scaffold
 - recipe:
   - recipe
+- help:
+  - help
+- about:
+  - about
