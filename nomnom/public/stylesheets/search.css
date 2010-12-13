@@ -28,6 +28,9 @@
     margin-bottom: 8px;
     max-width: 440px;
 }
+a.dropdown{
+	cursor: pointer;
+}
 
 a:hover{
 	text-decoration: underline;
