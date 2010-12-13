@@ -74,6 +74,10 @@ a:hover{
     width: 500px;
 }
 
+h1 {
+	font-family: "Georgia";
+}
+
 h2 {
     text-align: left;
 }
@@ -108,12 +112,10 @@ hr {
 	padding: 0;
 }
 
-#prev_page {
+.page_index {
 	font-size: 17px;
-	float: left;
 }
 
-#next_page {
-	font-size: 17px;
-	float: right;
+.underline_index {
+	text-decoration: underline;
 }
