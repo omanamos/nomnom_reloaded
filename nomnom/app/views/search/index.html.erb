@@ -3,11 +3,13 @@
 	start = @start.to_i
 	finish = start + @limit
 	loopmax = @results.results.length
-	
+	num_pages = num_recipes / @limit + 1
+	this_page = start / @limit + 1
 -%>
 
-<h1 class="title">Search Results: Found <%= num_recipes %> Recipe<%=(num_recipes != 1) ? "s" : ""%>.</h1>
-
+<%- if num_recipes > 0-%>
+	<h1 class="title">Search Results: Displaying <%=start+1%>-<%=[finish, start + loopmax].min%> of <%= num_recipes %> Recipe<%=(num_recipes != 1) ? "s" : ""%>.</h1>
+<%- end -%>
 <%- if @results.suggest? and @results.total == 0 and @results.suggest != @query -%>
 	<p>Did you mean <a href="<%=url_for :controller => 'search', :action => 'index'%>?query=<%= @results.suggest %>"><%= @results.suggest %></a>?</p>
 <%- end -%>
@@ -68,11 +70,23 @@
 	                <hr />
 	            <%- end -%>
     <%- end -%>
+    <%- if num_recipes > @limit -%>
     </br>
-    <%- if start > 0  -%>
-    	<a id="prev_page" href="<%=url_for :controller => 'search', :action => 'index'%>?query=<%= @results.suggest %>&start=<%=start - @limit%>"><< Previous Page</a>
-	<%- end -%>
-    <%- if finish < num_recipes  -%>
-    	<a id="next_page" href="<%=url_for :controller => 'search', :action => 'index'%>?query=<%= @results.suggest %>&start=<%=finish%>">Next Page >></a>
+    <div class="page_index">
+    	<%- if start > 0  -%>
+    		<a href="<%=url_for :controller => 'search', :action => 'index'%>?query=<%= @results.suggest %>&start=<%=start - @limit%>">< Prev.</a>&nbsp;&nbsp;
+		<%- end -%>
+    	<%-
+    		start_loop = (num_pages > 10 && this_page > 5) ? this_page - 5 : 1
+    		end_loop = (num_pages - start_loop > 10) ? start_loop + 10 : num_pages
+    	    for index_num in (start_loop..end_loop)
+    	    	underline_index = (index_num == this_page) ? "underline_index" : ""
+   		-%>
+    		<a class="<%=underline_index%>" href="<%=url_for :controller => 'search', :action => 'index'%>?query=<%= @results.suggest %>&start=<%=(index_num - 1) * @limit%>"><%=index_num%></a>
+    	<%- end -%>
+    	<%- if finish < num_recipes  -%>
+    		&nbsp;&nbsp;<a href="<%=url_for :controller => 'search', :action => 'index'%>?query=<%= @results.suggest %>&start=<%=finish%>">Next ></a>
+		<%- end -%>
+	</div>
 	<%- end -%>
 </div>
